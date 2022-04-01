@@ -4,9 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { createStore } from 'redux';
+import gameInfoReducer from './Reducers/gameInfo';
+import { devToolsEnhancer } from 'redux-devtools-extension';
+import { Provider } from 'react-redux';
+
+const store = createStore(gameInfoReducer, devToolsEnhancer({}));
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
