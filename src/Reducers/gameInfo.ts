@@ -1,26 +1,29 @@
-interface gameInfo {
-  userName: string | null;
-  score: number;
-  lives: number;
-}
+import { gameInfo } from '../Interfaces';
 
 interface action {
-  payload: string;
+  payload: any;
   type: string;
 }
 
-const initState: gameInfo = { userName: null, score: 0, lives: 0 };
+const initState: gameInfo = {
+  userName: null,
+  score: 0,
+  lives: 3,
+};
 
 const gameInfoReducer = (state: gameInfo = initState, action: action) => {
   switch (action.type) {
     case 'INCREASE_SCORE':
-      return { ...state, score: state.score++ };
+      return { ...state, score: state.score + 1 };
 
     case 'UPDATE_USERNAME':
       return { ...state, userName: action.payload };
 
     case 'REMOVE_LIFE':
-      return { ...state, lives: state.lives-- };
+      return { ...state, lives: state.lives - 1 };
+
+    case 'ADD_HOUSEMATE_DATA':
+      return { ...state, housemateData: action.payload };
 
     default:
       return state;
