@@ -1,16 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
-  const handleClick = () => {
-    console.log('hi');
-  };
-
   return (
     <div>
       <h1>Terrace Stats</h1>
-      <button onClick={handleClick} type='button'>
-        PLAY
-      </button>
+
+      <Link to='/settings'>
+        <button type='button'>Play!</button>
+      </Link>
+      <Link to='/about'>About the game.</Link>
     </div>
   );
 };

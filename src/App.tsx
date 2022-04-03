@@ -1,11 +1,15 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Homepage } from './Pages';
+import { Homepage, GameSettings } from './Pages';
 
 function App() {
   return (
     <div className='App'>
-      <Homepage />
+      <Routes>
+        <Route path='/*' element={<Homepage />} />
+        <Route path='/settings' element={<GameSettings />} />
+      </Routes>
     </div>
   );
 }
