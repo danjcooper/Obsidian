@@ -14,8 +14,11 @@ interface housemateData {
   episodes: number;
 }
 
-interface seasonData {
-  id: number;
-  housemates: number;
-  name: string;
+export interface seasonData {
+  seasonid: string;
+  seasonname: string;
+  lengthofseason: string;
+  housematecount: number;
+  datecount: number;
+  couplecount: number;
 }
