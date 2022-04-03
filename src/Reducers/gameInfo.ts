@@ -25,6 +25,9 @@ const gameInfoReducer = (state: gameInfo = initState, action: action) => {
     case 'ADD_HOUSEMATE_DATA':
       return { ...state, housemateData: action.payload };
 
+    case 'ADD_SEASON_DATA':
+      return { ...state, seasonData: action.payload };
+
     default:
       return state;
   }
