@@ -15,10 +15,10 @@ interface housemateData {
 }
 
 export interface seasonData {
-  seasonid: string;
-  seasonname: string;
-  lengthofseason: string;
-  housematecount: number;
-  datecount: number;
-  couplecount: number;
+  id: string;
+  name: string;
+  seasonLength: string;
+  totalHousemates: number;
+  totalDates: number;
+  totalCouples: number;
 }

@@ -18,7 +18,7 @@ const GameSettings = () => {
   return (
     <div>
       {seasonData ? (
-        seasonData.map((i) => <button key={i.seasonid}>{i.seasonname}</button>)
+        seasonData.map((i) => <button key={i.id}>{i.name}</button>)
       ) : (
         <p>Loading...</p>
       )}
