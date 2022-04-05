@@ -22,10 +22,10 @@ const gameInfoReducer = (state: gameInfo = initState, action: action) => {
     case 'REMOVE_LIFE':
       return { ...state, lives: state.lives - 1 };
 
-    case 'ADD_HOUSEMATE_DATA':
+    case 'UPDATE_HOUSEMATE_DATA':
       return { ...state, housemateData: action.payload };
 
-    case 'ADD_SEASON_DATA':
+    case 'UPDATE_SEASON_DATA':
       return { ...state, seasonData: action.payload };
 
     default:

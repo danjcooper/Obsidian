@@ -7,6 +7,7 @@ export interface gameInfo {
 }
 
 interface housemateData {
+  //TODO Update this temporary interface.
   id: number;
   name: string;
   season: string;
