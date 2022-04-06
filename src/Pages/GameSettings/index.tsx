@@ -5,10 +5,11 @@ import { seasonData } from '../../Interfaces';
 import { SeasonCodes } from '../../Enums';
 //TODO bring in actions.
 import { updateSeasonData } from '../../Actions/GameInfo';
+import { Dispatch } from 'redux';
 
 const GameSettings = () => {
   const [seasonData, setSeasonData] = useState<seasonData[] | null>(null);
-  const dispatch = useDispatch();
+  const dispatch: Dispatch = useDispatch();
 
   useEffect(() => {
     const getData = async () => {
@@ -21,7 +22,7 @@ const GameSettings = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(updateSeasonData(seasonData));
+    if (seasonData !== null) dispatch(updateSeasonData(seasonData));
   }, [seasonData]);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

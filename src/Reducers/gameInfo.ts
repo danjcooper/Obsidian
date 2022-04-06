@@ -1,3 +1,4 @@
+import { ActionTypes } from '../Enums';
 import { gameInfo } from '../Interfaces';
 
 interface action {
@@ -13,19 +14,19 @@ const initState: gameInfo = {
 
 const gameInfoReducer = (state: gameInfo = initState, action: action) => {
   switch (action.type) {
-    case 'INCREASE_SCORE':
+    case ActionTypes.INCREASE_SCORE:
       return { ...state, score: state.score + 1 };
 
-    case 'UPDATE_USERNAME':
+    case ActionTypes.UPDATE_USERNAME:
       return { ...state, userName: action.payload };
 
-    case 'REMOVE_LIFE':
+    case ActionTypes.REMOVE_LIFE:
       return { ...state, lives: state.lives - 1 };
 
-    case 'UPDATE_HOUSEMATE_DATA':
+    case ActionTypes.UPDATE_HOUSEMATE_DATA:
       return { ...state, housemateData: action.payload };
 
-    case 'UPDATE_SEASON_DATA':
+    case ActionTypes.UPDATE_SEASON_DATA:
       return { ...state, seasonData: action.payload };
 
     default:

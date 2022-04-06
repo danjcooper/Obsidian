@@ -1,14 +1,15 @@
+import { ActionTypes } from '../Enums';
 import { seasonData } from '../Interfaces';
 
 // var updateUserName: any;
 
 const updateUserName = (userName: string) => ({
-  type: 'UPDATE_USERNAME',
+  type: ActionTypes.UPDATE_USERNAME,
   payload: userName,
 });
 
-const updateSeasonData = (seasonData: seasonData[] | null) => ({
-  type: 'UPDATE_SEASON_DATA',
+const updateSeasonData = (seasonData: seasonData[]) => ({
+  type: ActionTypes.UPDATE_SEASON_DATA,
   payload: seasonData,
 });
 
