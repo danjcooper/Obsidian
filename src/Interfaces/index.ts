@@ -1,5 +1,5 @@
 export interface gameInfo {
-  userName: string | null;
+  userName: string;
   score: number;
   lives: number;
   housemateData?: housemateData[];
