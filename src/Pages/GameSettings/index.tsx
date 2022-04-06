@@ -1,15 +1,18 @@
 import React, { useState, useEffect, ReactEventHandler } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { seasonData } from '../../Interfaces';
-import { SeasonCodes } from '../../Enums';
+import { gameInfo, seasonData } from '../../Interfaces';
+import { ActionTypes, SeasonCodes } from '../../Enums';
 //TODO bring in actions.
-import { updateSeasonData } from '../../Actions/GameInfo';
+import { updateSeasonData, updateUserName } from '../../Actions/GameInfo';
 import { Dispatch } from 'redux';
 
 const GameSettings = () => {
   const [seasonData, setSeasonData] = useState<seasonData[] | null>(null);
+  const [username, setUsername] = useState<string>('');
+
   const dispatch: Dispatch = useDispatch();
+  const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
 
   useEffect(() => {
     const getData = async () => {
@@ -25,24 +28,36 @@ const GameSettings = () => {
     if (seasonData !== null) dispatch(updateSeasonData(seasonData));
   }, [seasonData]);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
 
     console.log(e.currentTarget.id);
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    dispatch(updateUserName(username));
+  };
+
+  const handleUsernameChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    setUsername(e.target.value);
+  };
+
   return (
     <div>
       {seasonData ? (
-        seasonData.map((i) => (
-          <button id={i.id} onClick={handleClick} key={i.id}>
-            {i.name}
-          </button>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
-      {seasonData ? <button>Play</button> : null}
+        <form onSubmit={handleSubmit}>
+          {seasonData.map((i) => (
+            <button type='button' key={i.id} onClick={handleClick}>
+              {i.name}
+            </button>
+          ))}
+          <input onChange={handleUsernameChange} type='text' />
+          <button type='submit'>Play!</button>
+        </form>
+      ) : null}
     </div>
   );
 };
