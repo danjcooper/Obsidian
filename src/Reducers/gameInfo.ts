@@ -7,7 +7,7 @@ interface action {
 }
 
 const initState: gameInfo = {
-  userName: null,
+  userName: '',
   score: 0,
   lives: 3,
 };
