@@ -1,9 +1,8 @@
-import React, { useState, useEffect, ReactEventHandler } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { SeasonCheckbox } from '../../Components';
 import { gameInfo, seasonData, formError } from '../../Interfaces';
-// import { ActionTypes, SeasonCodes } from '../../Enums';
 import { generateSeasonsString } from '../../Helpers';
 //TODO bring in actions.
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
