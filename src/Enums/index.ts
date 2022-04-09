@@ -17,9 +17,17 @@ enum ActionTypes {
 }
 
 enum ErrorMessages {
+    NO_ERROR = '',
     NO_USERNAME = 'A username has not be entered.',
     NO_SEASON_SELECTED = 'No seasons were selected.',
+    NO_QUERY_STRING = 'No seasons were found, go back to the game setting page and make your selection.',
     INVALID_USERNAME = 'Username invalid or contains profanity.',
+}
+
+enum GameStates {
+    ANSWERING = 'ANSWERING',
+    RESULT = 'RESULT',
+    GAME_OVER = 'GAME_OVER',
 }
 
 export { SeasonCodes, ActionTypes, ErrorMessages };

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SeasonCheckbox } from '../../Components';
+import { SeasonCheckbox, Loader } from '../../Components';
 import { gameInfo, seasonData, formError } from '../../Interfaces';
 import { generateSeasonsString } from '../../Helpers';
 import { ErrorMessages } from '../../Enums';
@@ -15,10 +15,10 @@ const GameSettings = () => {
     const [username, setUsername] = useState<string>('');
     const [selectedSeasons, setSelectedSeasons] = useState<string[]>([]);
     const [selectedSeasonsQueryString, setSelectedSeasonsQueryString] = useState<string>('');
-    const [formError, setFormError] = useState<formError>({ error: false, message: '' });
+    const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
 
     const dispatch: Dispatch = useDispatch();
-    const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
+    // const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -75,7 +75,7 @@ const GameSettings = () => {
         if (formError.message === ErrorMessages.INVALID_USERNAME && !filter.isProfane(e.target.value)) {
             setFormError({
                 error: false,
-                message: '',
+                message: ErrorMessages.NO_ERROR,
             });
         } else if (filter.isProfane(e.target.value)) {
             setFormError({
@@ -97,7 +97,9 @@ const GameSettings = () => {
                     <input onChange={handleUsernameChange} type='text' />
                     <button type='submit'>Play!</button>
                 </form>
-            ) : null}
+            ) : (
+                <Loader />
+            )}
             {formError.error ? <p>{formError.message}</p> : null}
         </div>
     );
