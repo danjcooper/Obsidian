@@ -1,5 +1,5 @@
 import { ActionTypes } from '../Enums';
-import { seasonData } from '../Interfaces';
+import { housemateData, seasonData } from '../Interfaces';
 
 // var updateUserName: any;
 
@@ -13,9 +13,14 @@ const updateSeasonData = (seasonData: seasonData[]) => ({
     payload: seasonData,
 });
 
+const updateHousemateData = (housemateData: housemateData[]) => ({
+    type: ActionTypes.UPDATE_HOUSEMATE_DATA,
+    payload: housemateData,
+});
+
 const updateQueryRequestString = (queryString: string) => ({
     type: ActionTypes.UPDATE_QUERY_STRING,
     payload: queryString,
 });
 
-export { updateUserName, updateSeasonData, updateQueryRequestString };
+export { updateUserName, updateSeasonData, updateQueryRequestString, updateHousemateData };

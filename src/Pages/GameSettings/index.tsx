@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { SeasonCheckbox } from '../../Components';
 import { gameInfo, seasonData, formError } from '../../Interfaces';
 import { generateSeasonsString } from '../../Helpers';
-//TODO bring in actions.
+import { ErrorMessages } from '../../Enums';
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
 import { Dispatch } from 'redux';
+const Filter = require('bad-words');
 
 const GameSettings = () => {
     const [seasonData, setSeasonData] = useState<seasonData[] | null>(null);
@@ -17,6 +19,7 @@ const GameSettings = () => {
 
     const dispatch: Dispatch = useDispatch();
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
@@ -54,7 +57,7 @@ const GameSettings = () => {
         e.preventDefault();
         if (username.length <= 0 || selectedSeasonsQueryString.length <= 0) {
             const errorMessage: string =
-                username.length <= 0 ? 'Error, username is missing' : 'Error, No seasons selected';
+                username.length <= 0 ? ErrorMessages.NO_USERNAME : ErrorMessages.NO_SEASON_SELECTED;
 
             setFormError({
                 error: true,
@@ -64,10 +67,24 @@ const GameSettings = () => {
         }
         dispatch(updateUserName(username));
         dispatch(updateQueryRequestString(selectedSeasonsQueryString));
+        navigate('/game');
     };
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setUsername(e.target.value);
+        const filter = new Filter();
+        if (formError.message === ErrorMessages.INVALID_USERNAME && !filter.isProfane(e.target.value)) {
+            setFormError({
+                error: false,
+                message: '',
+            });
+        } else if (filter.isProfane(e.target.value)) {
+            setFormError({
+                error: true,
+                message: ErrorMessages.INVALID_USERNAME,
+            });
+        } else {
+            setUsername(e.target.value);
+        }
     };
 
     return (

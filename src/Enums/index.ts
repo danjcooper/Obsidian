@@ -16,4 +16,10 @@ enum ActionTypes {
     UPDATE_QUERY_STRING = 'UPDATE_QUERY_STRING',
 }
 
-export { SeasonCodes, ActionTypes };
+enum ErrorMessages {
+    NO_USERNAME = 'A username has not be entered.',
+    NO_SEASON_SELECTED = 'No seasons were selected.',
+    INVALID_USERNAME = 'Username invalid or contains profanity.',
+}
+
+export { SeasonCodes, ActionTypes, ErrorMessages };

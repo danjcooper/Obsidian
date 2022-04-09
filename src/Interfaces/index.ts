@@ -7,13 +7,19 @@ export interface gameInfo {
     queryRequestString?: string;
 }
 
-interface housemateData {
-    //TODO Update this temporary interface.
+export interface housemateData {
     id: number;
     name: string;
-    season: string;
-    dates: number;
-    episodes: number;
+    nickname: string;
+    tagline: string;
+    totalWeeksInHouse: number;
+    totalLivedWith: number;
+    totalDates: number;
+    instagramFollowers: number;
+    age: number;
+    ageWhenEntered: number;
+    imageUrl: number;
+    seasonName: string;
 }
 
 export interface seasonData {
