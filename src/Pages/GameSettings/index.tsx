@@ -40,6 +40,10 @@ const GameSettings = () => {
 
         const updatedState: string[] = [...selectedSeasons];
 
+        const label = e.currentTarget.closest('label');
+
+        if (label) label.classList.toggle('active');
+
         selectedSeasons.indexOf(input) === -1
             ? updatedState.push(input)
             : updatedState.splice(selectedSeasons.indexOf(input), 1);
