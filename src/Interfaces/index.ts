@@ -4,6 +4,7 @@ export interface gameInfo {
     lives: number;
     housemateData?: housemateData[];
     seasonData?: seasonData[];
+    queryRequestString?: string;
 }
 
 interface housemateData {
@@ -23,4 +24,9 @@ export interface seasonData {
     totalDates: number;
     totalCouples: number;
     seasonCode: string;
+}
+
+export interface formError {
+    error: boolean;
+    message: string;
 }
