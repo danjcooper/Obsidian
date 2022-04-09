@@ -35,8 +35,6 @@ const GameSettings = () => {
 
         const updatedState = [...selectedSeasons];
 
-        console.log(input);
-
         // console.log(e.currentTarget.querySelector('input'));
         selectedSeasons.indexOf(input) === -1
             ? updatedState.push(input)

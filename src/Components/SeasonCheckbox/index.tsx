@@ -6,7 +6,7 @@ const SeasonCheckbox = ({ data, handleClick }: any) => {
         <>
             <label htmlFor={data.id}>
                 {data.name}
-                <input onClick={handleClick} id={data.id} value={data.name} type='checkbox' />
+                <input onClick={handleClick} id={data.id} value={data.seasonCode} type='checkbox' />
             </label>
         </>
     );
