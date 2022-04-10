@@ -30,4 +30,13 @@ enum GameStates {
     GAME_OVER = 'GAME_OVER',
 }
 
-export { SeasonCodes, ActionTypes, ErrorMessages };
+enum GameQuestions {
+    MORE_DATES = 'Who went on the more dates?',
+    MORE_TIME_IN_HOUSE = 'Who lived in the house for longer?',
+    MORE_HOUSEMATES = 'Who lived with more people?',
+    MORE_INSTAGRAM_FOLLOWERS = 'Who has more followers on Instagram?',
+    OLDER_NOW = 'Who is older now?',
+    OLDER_WHEN_ENTERED = 'Who was older when they entered the house?',
+}
+
+export { SeasonCodes, ActionTypes, ErrorMessages, GameStates, GameQuestions };

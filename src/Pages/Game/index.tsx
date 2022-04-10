@@ -4,12 +4,16 @@ import { housemateData, gameInfo, formError } from '../../Interfaces';
 import { updateHousemateData } from '../../Actions/GameInfo';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
-import { ErrorMessages } from '../../Enums';
-import { Loader } from '../../Components';
+import { ErrorMessages, GameStates } from '../../Enums';
+import { Loader, GameplayAnsweing, GameplayGameOver, GameplayResult } from '../../Components';
+import { generateRoundData } from '../../Helpers';
 
 const Game = () => {
     const [housemateData, setHousemateData] = useState<housemateData[] | null>(null);
     const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
+    const [gameState, setGameState] = useState<string>(GameStates.ANSWERING);
+    const [roundData, setRoundData] = useState<any>(null);
+    const [isWinner, setIsWinner] = useState<boolean | null>(null);
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const dispatch: Dispatch = useDispatch();
@@ -35,9 +39,49 @@ const Game = () => {
         if (housemateData !== null) dispatch(updateHousemateData(housemateData));
     }, [housemateData]);
 
+    const updateGameState = (newState: string): void => {
+        switch (newState) {
+            case GameStates.ANSWERING:
+                setIsWinner(null); // Reset if the user was a winner.
+                break;
+            case GameStates.RESULT:
+                setRoundData(true); // Update the round data for the next round.
+                break;
+            default:
+                break;
+        }
+        setGameState(newState);
+    };
+
+    const getRoundData = () => {
+        return;
+    };
+
+    const updateIsWinner = (result: boolean) => setIsWinner(result);
+
+    const renderGameplayComponent = () => {
+        switch (gameState) {
+            case GameStates.ANSWERING:
+                return (
+                    <GameplayAnsweing
+                        roundData={'Hi'}
+                        updateGameState={updateGameState}
+                        updateIsWinner={updateIsWinner}
+                    />
+                );
+            case GameStates.RESULT:
+                return <GameplayResult isWinner={isWinner} updateGameState={updateGameState} />;
+            case GameStates.GAME_OVER:
+                return <GameplayGameOver />;
+
+            default:
+                return <Loader />;
+        }
+    };
+
     return (
         <div>
-            {housemateData ? housemateData.map(housemate => <p key={housemate.id}>{housemate.name}</p>) : <Loader />}
+            {housemateData ? renderGameplayComponent() : <Loader />}
             {formError.error ? <p>{formError.message}</p> : null}
         </div>
     );
