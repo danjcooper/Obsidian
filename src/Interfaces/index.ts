@@ -36,3 +36,10 @@ export interface formError {
     error: boolean;
     message: string;
 }
+
+export interface roundData {
+    housemateOne: housemateData;
+    housemateTwo: housemateData;
+    question: string;
+    winner: number;
+}

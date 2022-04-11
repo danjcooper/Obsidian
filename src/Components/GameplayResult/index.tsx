@@ -8,7 +8,7 @@ export const GameplayResult = ({ isWinner, updateGameState }: any) => {
 
     return (
         <div>
-            {isWinner}
+            {isWinner ? <h2>winner</h2> : <h2>loser</h2>}
             <button onClick={handleClick}>Next Round</button>
         </div>
     );

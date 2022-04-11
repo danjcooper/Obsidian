@@ -1,15 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import { GameStates } from '../../Enums';
+import { generateRoundData } from '../../Helpers';
+import { roundData } from '../../Interfaces';
+import HousemateCard from '../HousemateCard';
+import Loader from '../Loader';
 
-type updateGameState = (newState: string) => void;
-
-const GameplayAnswering = ({ roundData, updateGameState, updateIsWinner }: any) => {
-    const [isWinner, setIsWinner] = useState<boolean | null>(null);
+const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: any) => {
+    const [roundData, setRoundData] = useState<roundData | null>(null);
 
     useEffect(() => {
-        if (isWinner !== null) updateIsWinner(isWinner);
-    }, [isWinner]);
+        setRoundData(generateRoundData(housemateData));
+    }, []);
 
-    return <div>GameplayAnswering</div>;
+    const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        const id: number = parseInt(e.currentTarget.id);
+        let result;
+        if (roundData) result = id === roundData.winner ? true : false;
+        updateIsWinner(result);
+        updateGameState(GameStates.RESULT);
+    };
+
+    return (
+        <div>
+            {roundData ? (
+                <>
+                    <HousemateCard housemateData={roundData.housemateOne} handleClick={handleClick} />
+                    <HousemateCard housemateData={roundData.housemateTwo} handleClick={handleClick} />
+                </>
+            ) : (
+                <Loader />
+            )}
+        </div>
+    );
 };
 
 export default GameplayAnswering;

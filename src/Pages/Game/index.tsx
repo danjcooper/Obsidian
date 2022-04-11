@@ -39,22 +39,22 @@ const Game = () => {
         if (housemateData !== null) dispatch(updateHousemateData(housemateData));
     }, [housemateData]);
 
+    useEffect(() => {
+        console.log(roundData);
+    }, [roundData]);
+
     const updateGameState = (newState: string): void => {
         switch (newState) {
             case GameStates.ANSWERING:
+                // Update the round data for the next round.
                 setIsWinner(null); // Reset if the user was a winner.
                 break;
             case GameStates.RESULT:
-                setRoundData(true); // Update the round data for the next round.
                 break;
             default:
                 break;
         }
         setGameState(newState);
-    };
-
-    const getRoundData = () => {
-        return;
     };
 
     const updateIsWinner = (result: boolean) => setIsWinner(result);
@@ -64,7 +64,7 @@ const Game = () => {
             case GameStates.ANSWERING:
                 return (
                     <GameplayAnsweing
-                        roundData={'Hi'}
+                        housemateData={housemateData}
                         updateGameState={updateGameState}
                         updateIsWinner={updateIsWinner}
                     />
