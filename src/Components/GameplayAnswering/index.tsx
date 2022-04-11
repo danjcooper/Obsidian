@@ -10,7 +10,7 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: a
 
     useEffect(() => {
         setRoundData(generateRoundData(housemateData));
-    }, []);
+    }, [housemateData]);
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const id: number = parseInt(e.currentTarget.id);

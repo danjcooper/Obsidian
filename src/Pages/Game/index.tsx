@@ -43,6 +43,12 @@ const Game = () => {
         console.log(roundData);
     }, [roundData]);
 
+    useEffect(() => {
+        if (formError.error) {
+            setGameState(GameStates.GAME_OVER);
+        }
+    }, [formError]);
+
     const updateGameState = (newState: string): void => {
         switch (newState) {
             case GameStates.ANSWERING:
