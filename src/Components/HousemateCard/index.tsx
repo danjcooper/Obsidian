@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { housemateData } from '../../Interfaces';
 
-const HousemateCard = ({ housemateData, handleClick }: any) => {
+// type props = housemateData,
+
+interface props {
+    housemateData: housemateData;
+    handleClick: any;
+}
+
+const styles: CSSProperties = {
+    width: '100vw',
+    height: '50vh',
+    background: 'pink',
+    textAlign: 'center',
+    padding: '60px',
+};
+
+const HousemateCard = ({ housemateData, handleClick }: props) => {
     return (
-        <div id={housemateData.id} onClick={handleClick}>
-            Housemate card
+        <div style={styles} id={housemateData.id.toString()} onClick={handleClick}>
+            <h3>{housemateData.name}</h3>
+            <p>{housemateData.seasonName}</p>
         </div>
     );
 };

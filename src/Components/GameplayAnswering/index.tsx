@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import { GameStates } from '../../Enums';
 import { generateRoundData } from '../../Helpers';
 import { roundData } from '../../Interfaces';
@@ -20,11 +20,23 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: a
         updateGameState(GameStates.RESULT);
     };
 
+    const styles: CSSProperties = {
+        textAlign: 'center',
+        position: 'absolute',
+        top: '50%',
+        transform: 'translateY(-50%)',
+
+        width: '100vw',
+        height: '60px',
+        background: 'white',
+    };
+
     return (
         <div>
             {roundData ? (
                 <>
                     <HousemateCard housemateData={roundData.housemateOne} handleClick={handleClick} />
+                    <h2 style={styles}>{roundData.question}</h2>
                     <HousemateCard housemateData={roundData.housemateTwo} handleClick={handleClick} />
                 </>
             ) : (
