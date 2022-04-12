@@ -8,8 +8,13 @@ import { ErrorMessages, GameStates } from '../../Enums';
 import { Loader, GameplayAnsweing, GameplayGameOver, GameplayResult } from '../../Components';
 import { generateRoundData } from '../../Helpers';
 
+// TODO - Add type for effectData.
+// TODO - Add effectData to redux store.
+// TODO - Add score and life component
+
 const Game = () => {
     const [housemateData, setHousemateData] = useState<housemateData[] | null>(null);
+    const [effectsData, setEffectsData] = useState<any>();
     const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
     const [gameState, setGameState] = useState<string>(GameStates.ANSWERING);
     const [roundData, setRoundData] = useState<any>(null);
@@ -32,6 +37,9 @@ const Game = () => {
             const result: AxiosResponse = await axios.get(
                 `https://terrace-house-server.herokuapp.com/housemates/${gameInfo.queryRequestString}`
             );
+            const effectsResult: AxiosResponse = await axios.get(`https://terrace-house-server.herokuapp.com/effects`);
+
+            setEffectsData(effectsResult.data);
             setHousemateData(result.data);
         };
         getData();
@@ -52,7 +60,7 @@ const Game = () => {
     }, [formError]);
 
     useEffect(() => {
-        lives <= 0 ? updateGameState(GameStates.GAME_OVER) : null;
+        if (lives <= 0) updateGameState(GameStates.GAME_OVER);
     }, [lives]);
 
     const updateGameState = (newState: string): void => {
@@ -91,6 +99,7 @@ const Game = () => {
                         updateScore={updateScore}
                         updateLives={updateLives}
                         updateGameState={updateGameState}
+                        specialEventData={effectsData}
                     />
                 );
             case GameStates.GAME_OVER:
