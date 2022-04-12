@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GameStates } from '../../Enums';
 
-export const GameplayResult = ({ isWinner, updateGameState }: any) => {
+export const GameplayResult = ({ isWinner, updateGameState, updateScore, updateLives }: any) => {
+    useEffect(() => {
+        isWinner ? updateScore() : updateLives();
+    }, []);
+
     const handleClick = () => {
         updateGameState(GameStates.ANSWERING);
     };

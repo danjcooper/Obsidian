@@ -14,6 +14,8 @@ const Game = () => {
     const [gameState, setGameState] = useState<string>(GameStates.ANSWERING);
     const [roundData, setRoundData] = useState<any>(null);
     const [isWinner, setIsWinner] = useState<boolean | null>(null);
+    const [score, setScore] = useState<number>(0);
+    const [lives, setLives] = useState<number>(3);
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const dispatch: Dispatch = useDispatch();
@@ -49,6 +51,10 @@ const Game = () => {
         }
     }, [formError]);
 
+    useEffect(() => {
+        lives <= 0 ? updateGameState(GameStates.GAME_OVER) : null;
+    }, [lives]);
+
     const updateGameState = (newState: string): void => {
         switch (newState) {
             case GameStates.ANSWERING:
@@ -65,6 +71,9 @@ const Game = () => {
 
     const updateIsWinner = (result: boolean) => setIsWinner(result);
 
+    const updateScore = () => setScore(prevState => (prevState += 1000));
+    const updateLives = () => setLives(prevState => prevState - 1);
+
     const renderGameplayComponent = () => {
         switch (gameState) {
             case GameStates.ANSWERING:
@@ -76,7 +85,14 @@ const Game = () => {
                     />
                 );
             case GameStates.RESULT:
-                return <GameplayResult isWinner={isWinner} updateGameState={updateGameState} />;
+                return (
+                    <GameplayResult
+                        isWinner={isWinner}
+                        updateScore={updateScore}
+                        updateLives={updateLives}
+                        updateGameState={updateGameState}
+                    />
+                );
             case GameStates.GAME_OVER:
                 return <GameplayGameOver />;
 
