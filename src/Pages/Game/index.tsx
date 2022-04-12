@@ -5,7 +5,7 @@ import { updateHousemateData } from '../../Actions/GameInfo';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { ErrorMessages, GameStates } from '../../Enums';
-import { Loader, GameplayAnsweing, GameplayGameOver, GameplayResult } from '../../Components';
+import { Loader, GameplayAnsweing, GameplayGameOver, GameplayResult, ScoreBoard } from '../../Components';
 import { generateRoundData } from '../../Helpers';
 
 // TODO - Add type for effectData.
@@ -111,10 +111,13 @@ const Game = () => {
     };
 
     return (
-        <div>
-            {housemateData ? renderGameplayComponent() : <Loader />}
-            {formError.error ? <p>{formError.message}</p> : null}
-        </div>
+        <>
+            <ScoreBoard score={score} lives={lives} />
+            <div>
+                {housemateData ? renderGameplayComponent() : <Loader />}
+                {formError.error ? <p>{formError.message}</p> : null}
+            </div>
+        </>
     );
 };
 

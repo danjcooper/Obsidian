@@ -91,4 +91,18 @@ const getValueFromQuestion = (housemate: housemateData, question: string): numbe
     }
 };
 
-export { generateSeasonsString, generateRoundData };
+// TODO - Refactor to make more random than 50/50
+const addSpecialEvent = () => {
+    return Math.round(Math.random()) % 2 === 0;
+};
+
+const getRandomSpecialEvent = (eventData: any) => {
+    const index = Math.floor(Math.random() * eventData.length);
+    const randomEvent = eventData[index];
+    return {
+        triggered: true,
+        eventData: { text: randomEvent.description, positive: randomEvent.positive, name: randomEvent.housemate },
+    };
+};
+
+export { generateSeasonsString, generateRoundData, getRandomSpecialEvent, addSpecialEvent };
