@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ScoreBoard = ({ score, lives }: any) => {
+const ScoreBoard = ({ score, lives, streak }: any) => {
     return (
         <div>
-            Score: {score} | Lives: {lives}
+            Score: {score} | Lives: {lives} | Streak: {streak}
         </div>
     );
 };

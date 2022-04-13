@@ -21,6 +21,7 @@ const Game = () => {
     const [isWinner, setIsWinner] = useState<boolean | null>(null);
     const [score, setScore] = useState<number>(0);
     const [lives, setLives] = useState<number>(3);
+    const [streak, setStreak] = useState<number>(0);
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const dispatch: Dispatch = useDispatch();
@@ -77,7 +78,17 @@ const Game = () => {
         setGameState(newState);
     };
 
-    const updateIsWinner = (result: boolean) => setIsWinner(result);
+    const updateIsWinner = (result: boolean): void => setIsWinner(result);
+
+    const updateStreak = (isCorrect: boolean): void => {
+        // TODO - fix increment logic
+        if (isCorrect) {
+            const newStreak = streak + 1;
+            setStreak(newStreak);
+        } else {
+            setStreak(0);
+        }
+    };
 
     const updateScore = () => setScore(prevState => (prevState += 1000));
     const updateLives = () => setLives(prevState => prevState - 1);
@@ -98,6 +109,7 @@ const Game = () => {
                         isWinner={isWinner}
                         updateScore={updateScore}
                         updateLives={updateLives}
+                        updateStreak={updateStreak}
                         updateGameState={updateGameState}
                         specialEventData={effectsData}
                     />
@@ -112,7 +124,7 @@ const Game = () => {
 
     return (
         <>
-            <ScoreBoard score={score} lives={lives} />
+            <ScoreBoard score={score} lives={lives} streak={streak} />
             <div>
                 {housemateData ? renderGameplayComponent() : <Loader />}
                 {formError.error ? <p>{formError.message}</p> : null}

@@ -2,7 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { GameStates } from '../../Enums';
 import { getRandomSpecialEvent, addSpecialEvent } from '../../Helpers';
 
-export const GameplayResult = ({ isWinner, updateGameState, updateScore, updateLives, specialEventData }: any) => {
+export const GameplayResult = ({
+    isWinner,
+    updateGameState,
+    updateScore,
+    updateLives,
+    specialEventData,
+    updateStreak,
+}: any) => {
     const [specialEvent, setSpecialEvent] = useState({
         triggered: false,
         eventData: { text: null, positive: null, name: null },
@@ -11,12 +18,13 @@ export const GameplayResult = ({ isWinner, updateGameState, updateScore, updateL
     useEffect(() => {
         // Based on the result, either add to the score or remove a life.
         isWinner ? updateScore() : updateLives();
+        updateStreak();
 
         // IF the conditions for a special event are met then add then special event is activated.
         if (addSpecialEvent()) {
             const updatedEventData = getRandomSpecialEvent(specialEventData);
             setSpecialEvent(updatedEventData);
-            updateScore();
+            updateScore(isWinner);
         }
     }, []);
 
