@@ -81,13 +81,9 @@ const Game = () => {
     const updateIsWinner = (result: boolean): void => setIsWinner(result);
 
     const updateStreak = (isCorrect: boolean): void => {
-        // TODO - fix increment logic
-        if (isCorrect) {
-            const newStreak = streak + 1;
-            setStreak(newStreak);
-        } else {
-            setStreak(0);
-        }
+        setStreak(prevState => {
+            return isCorrect ? prevState + 1 : 0;
+        });
     };
 
     const updateScore = () => setScore(prevState => (prevState += 1000));

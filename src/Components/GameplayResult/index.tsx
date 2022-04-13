@@ -18,7 +18,7 @@ export const GameplayResult = ({
     useEffect(() => {
         // Based on the result, either add to the score or remove a life.
         isWinner ? updateScore() : updateLives();
-        updateStreak();
+        updateStreak(isWinner);
 
         // IF the conditions for a special event are met then add then special event is activated.
         if (addSpecialEvent()) {
