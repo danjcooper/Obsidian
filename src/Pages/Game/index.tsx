@@ -98,6 +98,7 @@ const Game = () => {
                         updateStreak={updateStreak}
                         updateGameState={updateGameState}
                         specialEventData={effectsData}
+                        streak={streak}
                     />
                 );
             case GameStates.GAME_OVER:

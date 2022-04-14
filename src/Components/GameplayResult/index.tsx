@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { GameStates } from '../../Enums';
-import { effectData, specialEvent } from '../../Interfaces';
-import { getRandomSpecialEvent, addSpecialEvent } from '../../Helpers';
+import { specialEvent } from '../../Interfaces';
+import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
 
 export const GameplayResult = ({
     isWinner,
@@ -10,6 +10,7 @@ export const GameplayResult = ({
     updateLives,
     specialEventData,
     updateStreak,
+    streak,
 }: any) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
@@ -22,7 +23,7 @@ export const GameplayResult = ({
         updateStreak(isWinner);
 
         // IF the conditions for a special event are met then add then special event is activated.
-        if (addSpecialEvent()) {
+        if (streakMilestone(streak) && addSpecialEvent()) {
             const updatedEventData: specialEvent = getRandomSpecialEvent(specialEventData);
             setSpecialEvent(updatedEventData);
             updateScore(isWinner);

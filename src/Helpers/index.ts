@@ -1,5 +1,5 @@
 import { GameQuestions } from '../Enums';
-import { effectData, housemateData, roundData } from '../Interfaces';
+import { effectData, housemateData, roundData, specialEvent } from '../Interfaces';
 
 const generateSeasonsString = (input: string[]): string => {
     let output: string = '';
@@ -23,7 +23,7 @@ const generateRoundData = (housemateList: housemateData[]): roundData => {
     const housemateOne: housemateData = getRandomHousemate(housemateList);
 
     // Get the question, so we know if housemate 2 is suitable.
-    var questionError = true;
+    var questionError: boolean = true;
     let question: string = '';
 
     while (questionError) {
@@ -91,12 +91,15 @@ const getValueFromQuestion = (housemate: housemateData, question: string): numbe
     }
 };
 
-// TODO - Refactor to make more random than 50/50
-const addSpecialEvent = () => {
+const streakMilestone = (streak: number): boolean => {
+    return streak % 5 === 0 ? true : false;
+};
+
+const addSpecialEvent = (): boolean => {
     return Math.round(Math.random()) % 2 === 0;
 };
 
-const getRandomSpecialEvent = (eventData: effectData[]) => {
+const getRandomSpecialEvent = (eventData: effectData[]): specialEvent => {
     const index = Math.floor(Math.random() * eventData.length);
     const randomEvent = eventData[index];
     return {
@@ -105,4 +108,4 @@ const getRandomSpecialEvent = (eventData: effectData[]) => {
     };
 };
 
-export { generateSeasonsString, generateRoundData, getRandomSpecialEvent, addSpecialEvent };
+export { generateSeasonsString, generateRoundData, getRandomSpecialEvent, addSpecialEvent, streakMilestone };
