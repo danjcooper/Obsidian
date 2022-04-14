@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { housemateData, gameInfo, formError } from '../../Interfaces';
+import { housemateData, gameInfo, formError, effectData } from '../../Interfaces';
 import { updateHousemateData } from '../../Actions/GameInfo';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch } from 'redux';
 import { ErrorMessages, GameStates } from '../../Enums';
 import { Loader, GameplayAnsweing, GameplayGameOver, GameplayResult, ScoreBoard } from '../../Components';
-import { generateRoundData } from '../../Helpers';
 
-// TODO - Add type for effectData.
 // TODO - Add effectData to redux store.
-// TODO - Add score and life component
 
 const Game = () => {
     const [housemateData, setHousemateData] = useState<housemateData[] | null>(null);
-    const [effectsData, setEffectsData] = useState<any>();
+    const [effectsData, setEffectsData] = useState<effectData[] | null>(null);
     const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
     const [gameState, setGameState] = useState<string>(GameStates.ANSWERING);
-    const [roundData, setRoundData] = useState<any>(null);
     const [isWinner, setIsWinner] = useState<boolean | null>(null);
     const [score, setScore] = useState<number>(0);
     const [lives, setLives] = useState<number>(3);
@@ -51,13 +47,7 @@ const Game = () => {
     }, [housemateData]);
 
     useEffect(() => {
-        console.log(roundData);
-    }, [roundData]);
-
-    useEffect(() => {
-        if (formError.error) {
-            setGameState(GameStates.GAME_OVER);
-        }
+        if (formError.error) setGameState(GameStates.GAME_OVER);
     }, [formError]);
 
     useEffect(() => {

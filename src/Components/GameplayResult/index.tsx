@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GameStates } from '../../Enums';
+import { effectData, specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent } from '../../Helpers';
 
 export const GameplayResult = ({
@@ -10,7 +11,7 @@ export const GameplayResult = ({
     specialEventData,
     updateStreak,
 }: any) => {
-    const [specialEvent, setSpecialEvent] = useState({
+    const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
         eventData: { text: null, positive: null, name: null },
     });
@@ -22,7 +23,7 @@ export const GameplayResult = ({
 
         // IF the conditions for a special event are met then add then special event is activated.
         if (addSpecialEvent()) {
-            const updatedEventData = getRandomSpecialEvent(specialEventData);
+            const updatedEventData: specialEvent = getRandomSpecialEvent(specialEventData);
             setSpecialEvent(updatedEventData);
             updateScore(isWinner);
         }

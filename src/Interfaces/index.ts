@@ -43,3 +43,21 @@ export interface roundData {
     question: string;
     winner: number;
 }
+
+export interface effectData {
+    effectid: number;
+    housemate: string;
+    positive: boolean;
+    special: boolean;
+    description: string;
+    imageurl: string;
+    seasonid: number;
+}
+
+type eventText = string | null;
+type eventBool = boolean | null;
+
+export interface specialEvent {
+    triggered: boolean;
+    eventData: { text: eventText; positive: eventBool; name: eventText };
+}

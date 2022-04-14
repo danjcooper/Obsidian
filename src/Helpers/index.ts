@@ -1,5 +1,5 @@
 import { GameQuestions } from '../Enums';
-import { housemateData, roundData } from '../Interfaces';
+import { effectData, housemateData, roundData } from '../Interfaces';
 
 const generateSeasonsString = (input: string[]): string => {
     let output: string = '';
@@ -96,7 +96,7 @@ const addSpecialEvent = () => {
     return Math.round(Math.random()) % 2 === 0;
 };
 
-const getRandomSpecialEvent = (eventData: any) => {
+const getRandomSpecialEvent = (eventData: effectData[]) => {
     const index = Math.floor(Math.random() * eventData.length);
     const randomEvent = eventData[index];
     return {
