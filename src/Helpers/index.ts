@@ -92,7 +92,7 @@ const getValueFromQuestion = (housemate: housemateData, question: string): numbe
 };
 
 const streakMilestone = (streak: number): boolean => {
-    return streak % 5 === 0 ? true : false;
+    return streak % 5 === 0 && streak > 0 ? true : false;
 };
 
 const addSpecialEvent = (): boolean => {
