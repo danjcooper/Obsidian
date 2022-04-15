@@ -18,7 +18,6 @@ const GameSettings = () => {
     const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
 
     const dispatch: Dispatch = useDispatch();
-    // const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const navigate = useNavigate();
 
     useEffect(() => {
