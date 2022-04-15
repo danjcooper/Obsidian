@@ -38,7 +38,12 @@ export const GameplayResult = ({
         <div>
             {isWinner ? <h2>winner</h2> : <h2>loser</h2>}
             <button onClick={handleClick}>Next Round</button>
-            {specialEvent.triggered ? <h1>{specialEvent.eventData.text}</h1> : null}
+            {specialEvent.triggered ? (
+                <div className='modal'>
+                    <h2>{specialEvent.eventData.text}</h2>
+                    <p>{specialEvent.eventData.name}</p>
+                </div>
+            ) : null}
         </div>
     );
 };

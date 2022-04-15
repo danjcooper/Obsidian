@@ -7,6 +7,18 @@ import Loader from '../Loader';
 
 const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: any) => {
     const [roundData, setRoundData] = useState<roundData | null>(null);
+    const [points, setPoints] = useState<number>(100);
+    const [answered, setAnswered] = useState<boolean>(false);
+
+    const barStyle = {
+        width: `${points}vw`,
+        background: `blue`,
+    };
+
+    useEffect(() => {
+        const interval = setInterval(() => setPoints(points => (points > 0 ? points - 1 : points)), 100);
+        return () => clearInterval(interval);
+    }, [answered]);
 
     useEffect(() => {
         setRoundData(generateRoundData(housemateData));
@@ -16,6 +28,7 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: a
         const id: number = parseInt(e.currentTarget.id);
         let result;
         if (roundData) result = id === roundData.winner ? true : false;
+        setAnswered(true);
         updateIsWinner(result);
         updateGameState(GameStates.RESULT);
     };
@@ -37,6 +50,9 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: a
                 <>
                     <HousemateCard housemateData={roundData.housemateOne} handleClick={handleClick} />
                     <h2 style={styles}>{roundData.question}</h2>
+                    <div style={barStyle}>
+                        <p>{points}</p>
+                    </div>
                     <HousemateCard housemateData={roundData.housemateTwo} handleClick={handleClick} />
                 </>
             ) : (
