@@ -19,6 +19,7 @@ const styles: CSSProperties = {
 const HousemateCard = ({ housemateData, handleClick }: props) => {
     return (
         <div style={styles} id={housemateData.id.toString()} onClick={handleClick}>
+            <img src='' alt='A picture of this housemate' />
             <h3>{housemateData.name}</h3>
             <p>{housemateData.seasonName}</p>
         </div>
