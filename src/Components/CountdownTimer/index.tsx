@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 const CountdownTimer = ({ points }: any) => {
-    const barStyle = {
+    const barStyle: CSSProperties = {
         width: `${points}vw`,
         height: '30px',
         background: `blue`,

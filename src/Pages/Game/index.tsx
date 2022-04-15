@@ -105,7 +105,7 @@ const Game = () => {
                     />
                 );
             case GameStates.GAME_OVER:
-                return <GameplayGameOver />;
+                return <GameplayGameOver username={gameInfo.userName} score={score} />;
 
             default:
                 return <Loader />;
