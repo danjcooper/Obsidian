@@ -3,18 +3,12 @@ import React, { CSSProperties } from 'react';
 const CountdownTimer = ({ points }: any) => {
     const barStyle = {
         width: `${points}vw`,
+        height: '30px',
         background: `blue`,
         margin: '0px',
     };
-    const barTextStyle: CSSProperties = {
-        margin: '0px',
-    };
 
-    return (
-        <div style={barStyle}>
-            <p style={barTextStyle}>{points}</p>
-        </div>
-    );
+    return <div style={barStyle}></div>;
 };
 
 export default CountdownTimer;
