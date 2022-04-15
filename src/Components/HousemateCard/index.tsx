@@ -31,7 +31,7 @@ const HousemateCard = ({ housemateData, handleClick }: props) => {
                 src={baseImageUrl.concat(housemateData.imageUrl)}
                 alt='A picture of this housemate'
             />
-            <h3>{housemateData.name}</h3>
+            <h3>{housemateData.nickname ? housemateData.nickname : housemateData.name}</h3>
             <p>{housemateData.seasonName}</p>
         </div>
     );
