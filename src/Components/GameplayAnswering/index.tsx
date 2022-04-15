@@ -5,7 +5,7 @@ import { roundData } from '../../Interfaces';
 import HousemateCard from '../HousemateCard';
 import Loader from '../Loader';
 
-const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: any) => {
+const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, updateRoundPoints }: any) => {
     const [roundData, setRoundData] = useState<roundData | null>(null);
     const [points, setPoints] = useState<number>(100);
     const [answered, setAnswered] = useState<boolean>(false);
@@ -30,6 +30,9 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner }: a
         if (roundData) result = id === roundData.winner ? true : false;
         setAnswered(true);
         updateIsWinner(result);
+        console.log(points);
+
+        updateRoundPoints(points);
         updateGameState(GameStates.RESULT);
     };
 

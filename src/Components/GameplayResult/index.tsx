@@ -11,6 +11,7 @@ export const GameplayResult = ({
     specialEventData,
     updateStreak,
     streak,
+    roundPoints,
 }: any) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
@@ -19,7 +20,7 @@ export const GameplayResult = ({
 
     useEffect(() => {
         // Based on the result, either add to the score or remove a life.
-        isWinner ? updateScore() : updateLives();
+        isWinner ? updateScore(roundPoints) : updateLives();
         updateStreak(isWinner);
 
         // IF the conditions for a special event are met then add then special event is activated.

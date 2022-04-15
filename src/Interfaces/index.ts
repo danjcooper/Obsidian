@@ -18,7 +18,7 @@ export interface housemateData {
     instagramFollowers: number;
     age: number;
     ageWhenEntered: number;
-    imageUrl: number;
+    imageUrl: string;
     seasonName: string;
 }
 

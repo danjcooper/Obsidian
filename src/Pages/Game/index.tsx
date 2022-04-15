@@ -18,6 +18,7 @@ const Game = () => {
     const [score, setScore] = useState<number>(0);
     const [lives, setLives] = useState<number>(3);
     const [streak, setStreak] = useState<number>(0);
+    const [roundPoints, setRoundPoints] = useState<number>(0);
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const dispatch: Dispatch = useDispatch();
@@ -76,8 +77,9 @@ const Game = () => {
         });
     };
 
-    const updateScore = () => setScore(prevState => (prevState += 1000));
+    const updateScore = (points: number) => setScore(prevState => (prevState += points));
     const updateLives = () => setLives(prevState => prevState - 1);
+    const updateRoundPoints = (input: number) => setRoundPoints(input);
 
     const renderGameplayComponent = () => {
         switch (gameState) {
@@ -87,6 +89,7 @@ const Game = () => {
                         housemateData={housemateData}
                         updateGameState={updateGameState}
                         updateIsWinner={updateIsWinner}
+                        updateRoundPoints={updateRoundPoints}
                     />
                 );
             case GameStates.RESULT:
@@ -99,6 +102,7 @@ const Game = () => {
                         updateGameState={updateGameState}
                         specialEventData={effectsData}
                         streak={streak}
+                        roundPoints={roundPoints}
                     />
                 );
             case GameStates.GAME_OVER:

@@ -16,10 +16,21 @@ const styles: CSSProperties = {
     padding: '60px',
 };
 
+const imageStyle: CSSProperties = {
+    width: '200px',
+    height: '200px',
+    borderRadius: '100px',
+};
+
 const HousemateCard = ({ housemateData, handleClick }: props) => {
+    const baseImageUrl = 'https://raw.githubusercontent.com/danjcooper/Obsidian/main/images';
     return (
         <div style={styles} id={housemateData.id.toString()} onClick={handleClick}>
-            <img src='' alt='A picture of this housemate' />
+            <img
+                style={imageStyle}
+                src={baseImageUrl.concat(housemateData.imageUrl)}
+                alt='A picture of this housemate'
+            />
             <h3>{housemateData.name}</h3>
             <p>{housemateData.seasonName}</p>
         </div>
