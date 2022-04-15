@@ -5,3 +5,5 @@ export { default as GameplayResult } from './GameplayResult';
 export { default as GameplayGameOver } from './GameplayGameOver';
 export { default as HousemateCard } from './HousemateCard';
 export { default as ScoreBoard } from './ScoreBoard';
+export { default as Question } from './Question';
+export { default as CountdownTimer } from './CountdownTimer';

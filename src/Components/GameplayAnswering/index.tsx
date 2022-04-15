@@ -1,19 +1,13 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GameStates } from '../../Enums';
 import { generateRoundData } from '../../Helpers';
 import { roundData } from '../../Interfaces';
-import HousemateCard from '../HousemateCard';
-import Loader from '../Loader';
+import { Loader, Question, CountdownTimer, HousemateCard } from '../index';
 
 const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, updateRoundPoints }: any) => {
     const [roundData, setRoundData] = useState<roundData | null>(null);
     const [points, setPoints] = useState<number>(100);
     const [answered, setAnswered] = useState<boolean>(false);
-
-    const barStyle = {
-        width: `${points}vw`,
-        background: `blue`,
-    };
 
     useEffect(() => {
         const interval = setInterval(() => setPoints(points => (points > 0 ? points - 1 : points)), 100);
@@ -26,36 +20,23 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, upd
 
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const id: number = parseInt(e.currentTarget.id);
+
         let result;
         if (roundData) result = id === roundData.winner ? true : false;
+
         setAnswered(true);
         updateIsWinner(result);
-        console.log(points);
-
         updateRoundPoints(points);
         updateGameState(GameStates.RESULT);
-    };
-
-    const styles: CSSProperties = {
-        textAlign: 'center',
-        position: 'absolute',
-        top: '50%',
-        transform: 'translateY(-50%)',
-
-        width: '100vw',
-        height: '60px',
-        background: 'white',
     };
 
     return (
         <div>
             {roundData ? (
                 <>
+                    <CountdownTimer points={points} />
                     <HousemateCard housemateData={roundData.housemateOne} handleClick={handleClick} />
-                    <h2 style={styles}>{roundData.question}</h2>
-                    <div style={barStyle}>
-                        <p>{points}</p>
-                    </div>
+                    <Question text={roundData.question} />
                     <HousemateCard housemateData={roundData.housemateTwo} handleClick={handleClick} />
                 </>
             ) : (
