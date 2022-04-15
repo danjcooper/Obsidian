@@ -24,10 +24,10 @@ export const GameplayResult = ({
         updateStreak(isWinner);
 
         // IF the conditions for a special event are met then add then special event is activated.
-        if (streakMilestone(streak) && addSpecialEvent()) {
+        if (streakMilestone(streak + 1) && addSpecialEvent()) {
             const updatedEventData: specialEvent = getRandomSpecialEvent(specialEventData);
             setSpecialEvent(updatedEventData);
-            updateScore(isWinner);
+            updateScore(30000000);
         }
     }, []);
 
@@ -40,7 +40,7 @@ export const GameplayResult = ({
             {isWinner ? <h2>winner</h2> : <h2>loser</h2>}
             <button onClick={handleClick}>Next Round</button>
             {specialEvent.triggered ? (
-                <div className='modal'>
+                <div>
                     <h2>{specialEvent.eventData.text}</h2>
                     <p>{specialEvent.eventData.name}</p>
                 </div>

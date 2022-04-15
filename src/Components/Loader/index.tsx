@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import svg from './ond-loader.svg';
+import svg from './ond-loader-two.svg';
 import Vivus from 'vivus';
 
 const Loader = () => {
