@@ -1,8 +1,6 @@
 import React, { CSSProperties } from 'react';
 import { housemateData } from '../../Interfaces';
 
-// type props = housemateData,
-
 interface props {
     housemateData: housemateData;
     handleClick: any;

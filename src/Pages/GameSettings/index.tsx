@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SeasonCheckbox, Loader } from '../../Components';
-import { gameInfo, seasonData, formError } from '../../Interfaces';
+import { SeasonCheckbox, Loader, ErrorModal } from '../../Components';
+import { seasonData, formError } from '../../Interfaces';
 import { generateSeasonsString } from '../../Helpers';
 import { ErrorMessages } from '../../Enums';
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
@@ -19,6 +19,7 @@ const GameSettings = () => {
 
     const dispatch: Dispatch = useDispatch();
     const navigate = useNavigate();
+    const filter = new Filter();
 
     useEffect(() => {
         const getData = async () => {
@@ -54,7 +55,7 @@ const GameSettings = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        if (username.length <= 0 || selectedSeasonsQueryString.length <= 0) {
+        if (username.length <= 0 || selectedSeasonsQueryString.length <= 0 || filter.isProfane(username)) {
             const errorMessage: string =
                 username.length <= 0 ? ErrorMessages.NO_USERNAME : ErrorMessages.NO_SEASON_SELECTED;
 
@@ -70,7 +71,6 @@ const GameSettings = () => {
     };
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const filter = new Filter();
         if (formError.message === ErrorMessages.INVALID_USERNAME && !filter.isProfane(e.target.value)) {
             setFormError({
                 error: false,
@@ -99,7 +99,8 @@ const GameSettings = () => {
             ) : (
                 <Loader />
             )}
-            {formError.error ? <p>{formError.message}</p> : null}
+
+            {formError.error ? <ErrorModal message={formError.message} /> : null}
         </div>
     );
 };

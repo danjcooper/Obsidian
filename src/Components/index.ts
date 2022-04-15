@@ -7,3 +7,4 @@ export { default as HousemateCard } from './HousemateCard';
 export { default as ScoreBoard } from './ScoreBoard';
 export { default as Question } from './Question';
 export { default as CountdownTimer } from './CountdownTimer';
+export { default as ErrorModal } from './ErrorModal';
