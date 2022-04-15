@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 import { housemateData, gameInfo, formError, effectData } from '../../Interfaces';
 import { updateHousemateData } from '../../Actions/GameInfo';
@@ -22,15 +23,13 @@ const Game = () => {
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const dispatch: Dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getData = async () => {
             if (!gameInfo.queryRequestString) {
-                // TODO maybe this should just redirect.
-                setFormError({
-                    error: true,
-                    message: ErrorMessages.NO_QUERY_STRING,
-                });
+                //If the user goes directly to this page, or the game is interrupted, we redirect.
+                navigate('/settings');
             }
             const result: AxiosResponse = await axios.get(
                 `https://terrace-house-server.herokuapp.com/housemates/${gameInfo.queryRequestString}`
