@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { Loader } from './Components';
+import { Loader, LeaderBoard } from './Components';
 import { Homepage, GameSettings, Game } from './Pages';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
                 <Route path='/*' element={<Homepage />} />
                 <Route path='/settings' element={<GameSettings />} />
                 <Route path='/game' element={<Game />} />
-                <Route path='/test' element={<Loader />} />
+                <Route path='/test' element={<LeaderBoard />} />
             </Routes>
         </div>
     );

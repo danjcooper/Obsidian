@@ -61,3 +61,9 @@ export interface specialEvent {
     triggered: boolean;
     eventData: { text: eventText; positive: eventBool; name: eventText };
 }
+
+export interface leaderboard {
+    id: number;
+    username: string;
+    score: number;
+}

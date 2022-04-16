@@ -9,3 +9,4 @@ export { default as Question } from './Question';
 export { default as CountdownTimer } from './CountdownTimer';
 export { default as ErrorModal } from './ErrorModal';
 export { default as LeaderBoard } from './LeaderBoard';
+export { default as LeaderboardItem } from './LeaderboardItem';
