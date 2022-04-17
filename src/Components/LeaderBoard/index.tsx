@@ -15,7 +15,13 @@ const LeaderBoard = () => {
     }, []);
 
     return (
-        <>{leaderboardData ? leaderboardData.map((item, i) => <LeaderboardItem key={i} data={item} />) : <Loader />}</>
+        <>
+            {leaderboardData ? (
+                leaderboardData.map((item, i) => <LeaderboardItem key={item.id} data={item} />)
+            ) : (
+                <Loader />
+            )}
+        </>
     );
 };
 

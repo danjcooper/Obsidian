@@ -1,6 +1,12 @@
 import React from 'react';
 
-const ScoreBoard = ({ score, lives, streak }: any) => {
+interface props {
+    score: number;
+    lives: number;
+    streak: number;
+}
+
+const ScoreBoard = ({ score, lives, streak }: props) => {
     return (
         <div>
             Score: {score} | Lives: {lives} | Streak: {streak}

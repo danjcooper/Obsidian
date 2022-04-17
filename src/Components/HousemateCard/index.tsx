@@ -3,7 +3,7 @@ import { housemateData } from '../../Interfaces';
 
 interface props {
     housemateData: housemateData;
-    handleClick: any;
+    handleClick: () => void;
 }
 
 const styles: CSSProperties = {
@@ -20,7 +20,7 @@ const imageStyle: CSSProperties = {
     borderRadius: '100px',
 };
 
-const HousemateCard = ({ housemateData, handleClick }: props) => {
+const HousemateCard = ({ housemateData, handleClick }: any) => {
     const baseImageUrl = 'https://raw.githubusercontent.com/danjcooper/Obsidian/main/images';
     return (
         <div style={styles} id={housemateData.id.toString()} onClick={handleClick}>

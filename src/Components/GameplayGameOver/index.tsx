@@ -5,7 +5,12 @@ import LeaderBoard from '../LeaderBoard';
 import {} from '../../Helpers';
 import Loader from '../Loader';
 
-const GameplayGameOver = ({ username, score }: any) => {
+interface props {
+    username: string;
+    score: number;
+}
+
+const GameplayGameOver = ({ username, score }: props) => {
     const [scoreAddedToLeaderboard, setScoreAddedToLeaderboard] = useState<boolean>(false);
 
     useEffect(() => {

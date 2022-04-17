@@ -1,12 +1,17 @@
 import React from 'react';
-import { gameInfo, seasonData } from '../../Interfaces';
+import { seasonData } from '../../Interfaces';
 
-const SeasonCheckbox = ({ data, handleClick }: any) => {
+interface props {
+    data: seasonData;
+    handleClick: () => void;
+}
+
+const SeasonCheckbox = ({ data, handleClick }: props) => {
     return (
         <>
-            <label htmlFor={data.id}>
+            <label htmlFor={data.id.toString()}>
                 {data.name}
-                <input onClick={handleClick} id={data.id} value={data.seasonCode} type='checkbox' />
+                <input onClick={handleClick} id={data.id.toString()} value={data.seasonCode} type='checkbox' />
             </label>
         </>
     );

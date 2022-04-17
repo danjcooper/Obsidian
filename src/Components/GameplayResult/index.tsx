@@ -3,6 +3,17 @@ import { GameStates } from '../../Enums';
 import { specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
 
+interface props {
+    isWinner: boolean;
+    updateGameState: () => void;
+    updateScore: () => void;
+    updateLives: () => void;
+    specialEventData: specialEvent;
+    updateSteak: () => void;
+    streak: number;
+    roundPoints: number;
+}
+
 export const GameplayResult = ({
     isWinner,
     updateGameState,

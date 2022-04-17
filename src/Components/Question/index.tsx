@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Question = ({ text }: any) => {
+interface props {
+    text: string;
+}
+
+const Question = ({ text }: props) => {
     return (
         <div>
             <h2>{text}</h2>
