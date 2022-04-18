@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { GameStates } from '../../Enums';
 import { generateRoundData } from '../../Helpers';
 import { roundData } from '../../Interfaces';
+import { props } from './interfaces';
 import { Loader, Question, CountdownTimer, HousemateCard } from '../index';
 
-const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, updateRoundPoints }: any) => {
+const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, updateRoundPoints }: props) => {
     const [roundData, setRoundData] = useState<roundData | null>(null);
     const [points, setPoints] = useState<number>(100);
     const [answered, setAnswered] = useState<boolean>(false);
@@ -21,13 +22,13 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, upd
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
         const id: number = parseInt(e.currentTarget.id);
 
-        let result;
-        if (roundData) result = id === roundData.winner ? true : false;
-
-        setAnswered(true);
-        updateIsWinner(result);
-        updateRoundPoints(points);
-        updateGameState(GameStates.RESULT);
+        if (roundData) {
+            const result: boolean = id === roundData.winner ? true : false;
+            setAnswered(true);
+            updateIsWinner(result);
+            updateRoundPoints(points);
+            updateGameState(GameStates.RESULT);
+        }
     };
 
     return (

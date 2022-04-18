@@ -1,10 +1,5 @@
 import React from 'react';
-import { seasonData } from '../../Interfaces';
-
-interface props {
-    data: seasonData;
-    handleClick: () => void;
-}
+import { props } from './interfaces';
 
 const SeasonCheckbox = ({ data, handleClick }: props) => {
     return (

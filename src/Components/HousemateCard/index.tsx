@@ -1,10 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { housemateData } from '../../Interfaces';
-
-interface props {
-    housemateData: housemateData;
-    handleClick: () => void;
-}
+import { props } from './interfaces';
 
 const styles: CSSProperties = {
     width: '100vw',
@@ -20,7 +15,7 @@ const imageStyle: CSSProperties = {
     borderRadius: '100px',
 };
 
-const HousemateCard = ({ housemateData, handleClick }: any) => {
+const HousemateCard = ({ housemateData, handleClick }: props) => {
     const baseImageUrl = 'https://raw.githubusercontent.com/danjcooper/Obsidian/main/images';
     return (
         <div style={styles} id={housemateData.id.toString()} onClick={handleClick}>

@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import LeaderBoard from '../LeaderBoard';
 import {} from '../../Helpers';
 import Loader from '../Loader';
-
-interface props {
-    username: string;
-    score: number;
-}
+import { props } from './interfaces';
 
 const GameplayGameOver = ({ username, score }: props) => {
     const [scoreAddedToLeaderboard, setScoreAddedToLeaderboard] = useState<boolean>(false);

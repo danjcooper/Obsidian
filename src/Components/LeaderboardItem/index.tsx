@@ -1,11 +1,7 @@
 import React from 'react';
-import { leaderboard } from '../../Interfaces';
+import { props } from './interfaces';
 
-interface leaderboardItemProps {
-    data: leaderboard;
-}
-
-const LeaderboardItem = ({ data }: leaderboardItemProps) => {
+const LeaderboardItem = ({ data }: props) => {
     return (
         <p>
             {data.username} : {data.score}

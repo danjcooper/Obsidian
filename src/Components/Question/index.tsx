@@ -1,8 +1,5 @@
 import React from 'react';
-
-interface props {
-    text: string;
-}
+import { props } from './interfaces';
 
 const Question = ({ text }: props) => {
     return (

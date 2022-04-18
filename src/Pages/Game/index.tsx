@@ -85,7 +85,7 @@ const Game = () => {
             case GameStates.ANSWERING:
                 return (
                     <GameplayAnsweing
-                        housemateData={housemateData}
+                        housemateData={housemateData!}
                         updateGameState={updateGameState}
                         updateIsWinner={updateIsWinner}
                         updateRoundPoints={updateRoundPoints}

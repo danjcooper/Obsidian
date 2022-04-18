@@ -2,17 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { GameStates } from '../../Enums';
 import { specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
-
-interface props {
-    isWinner: boolean;
-    updateGameState: () => void;
-    updateScore: () => void;
-    updateLives: () => void;
-    specialEventData: specialEvent;
-    updateSteak: () => void;
-    streak: number;
-    roundPoints: number;
-}
+import { props } from './interfaces';
 
 export const GameplayResult = ({
     isWinner,
@@ -23,7 +13,7 @@ export const GameplayResult = ({
     updateStreak,
     streak,
     roundPoints,
-}: any) => {
+}: props) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
         eventData: { text: null, positive: null, name: null },

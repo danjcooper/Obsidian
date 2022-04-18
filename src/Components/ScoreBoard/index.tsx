@@ -1,10 +1,5 @@
 import React from 'react';
-
-interface props {
-    score: number;
-    lives: number;
-    streak: number;
-}
+import { props } from './interfaces';
 
 const ScoreBoard = ({ score, lives, streak }: props) => {
     return (

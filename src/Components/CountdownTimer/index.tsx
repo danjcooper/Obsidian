@@ -1,6 +1,7 @@
 import React, { CSSProperties } from 'react';
+import { props } from './interfaces';
 
-const CountdownTimer = ({ points }: any) => {
+const CountdownTimer = ({ points }: props) => {
     const barStyle: CSSProperties = {
         width: `${points}vw`,
         height: '30px',
