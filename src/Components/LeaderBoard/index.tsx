@@ -2,8 +2,9 @@ import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { leaderboard } from '../../Interfaces';
 import { Loader, LeaderboardItem } from '../index';
+import { props } from './interfaces';
 
-const LeaderBoard = () => {
+const LeaderBoard = ({ score, username }: props) => {
     const [leaderboardData, setLeaderboardData] = useState<leaderboard[] | null>(null);
 
     useEffect(() => {
@@ -17,7 +18,10 @@ const LeaderBoard = () => {
     return (
         <>
             {leaderboardData ? (
-                leaderboardData.map((item, i) => <LeaderboardItem key={item.id} data={item} />)
+                leaderboardData.map((item, i) => {
+                    const isUsersScore = item.username === username && item.score === score ? true : false;
+                    return <LeaderboardItem key={item.id} data={item} isUsersScore={isUsersScore} />;
+                })
             ) : (
                 <Loader />
             )}

@@ -27,7 +27,9 @@ const GameplayGameOver = ({ username, score }: props) => {
                 <h2>Game Over</h2>
                 <h2>You scored: {score}</h2>
             </section>
-            <section>{scoreAddedToLeaderboard ? <LeaderBoard /> : <Loader />}</section>
+            <section>
+                {scoreAddedToLeaderboard ? <LeaderBoard username={username} score={score} /> : <Loader />}
+            </section>
             <Link to='/settings'>
                 <button type='button'>PLAY AGAIN</button>
             </Link>
