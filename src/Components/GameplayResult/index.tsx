@@ -4,6 +4,7 @@ import { specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
 import { props } from './interfaces';
 import styles from './style.module.css';
+import Modal from '../Modal';
 
 export const GameplayResult = ({
     isWinner,
@@ -55,6 +56,7 @@ export const GameplayResult = ({
                 ) : (
                     <h2>Wrong!</h2>
                 )}
+                <Modal />
             </section>
 
             <button onClick={handleClick}>Next Round</button>

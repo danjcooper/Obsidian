@@ -10,3 +10,4 @@ export { default as CountdownTimer } from './CountdownTimer';
 export { default as ErrorModal } from './ErrorModal';
 export { default as LeaderBoard } from './LeaderBoard';
 export { default as LeaderboardItem } from './LeaderboardItem';
+export { default as Modal } from './Modal';
