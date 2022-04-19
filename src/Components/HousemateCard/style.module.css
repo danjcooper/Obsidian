@@ -1,0 +1,37 @@
+.card {
+    text-align: left;
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 0 25px;
+}
+
+.cardImg {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    border: 10px solid #64c368;
+}
+
+.text {
+    margin: 10px auto;
+}
+
+.heading {
+    margin: 10px auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        display: flex;
+        align-items: center;
+    }
+    .cardImg {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+}

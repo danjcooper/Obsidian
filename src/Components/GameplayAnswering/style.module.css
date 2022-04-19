@@ -1,0 +1,4 @@
+.housemateContainer {
+    display: flex;
+    flex-direction: column;
+}

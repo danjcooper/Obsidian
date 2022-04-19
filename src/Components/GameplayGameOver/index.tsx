@@ -5,9 +5,12 @@ import LeaderBoard from '../LeaderBoard';
 import {} from '../../Helpers';
 import Loader from '../Loader';
 import { props } from './interfaces';
+import { leaderboard } from '../../Interfaces';
+import LeaderboardItem from '../LeaderboardItem';
 
 const GameplayGameOver = ({ username, score }: props) => {
-    const [scoreAddedToLeaderboard, setScoreAddedToLeaderboard] = useState<boolean>(false);
+    // const [scoreAddedToLeaderboard, setScoreAddedToLeaderboard] = useState<boolean>(false);
+    const [leaderboardData, setLeaderboardData] = useState<leaderboard[] | null>(null);
 
     useEffect(() => {
         const updateLeaderboard = async () => {
@@ -16,7 +19,10 @@ const GameplayGameOver = ({ username, score }: props) => {
                 `https://terrace-house-server.herokuapp.com/leaderboard/new`,
                 body
             );
-            setScoreAddedToLeaderboard(response.status === 200 ? true : false);
+            console.log(response.data);
+
+            setLeaderboardData(response.data);
+            // setScoreAddedToLeaderboard(response.status === 200 ? true : false);
         };
         updateLeaderboard();
     }, []);
@@ -28,7 +34,13 @@ const GameplayGameOver = ({ username, score }: props) => {
                 <h2>You scored: {score}</h2>
             </section>
             <section>
-                {scoreAddedToLeaderboard ? <LeaderBoard username={username} score={score} /> : <Loader />}
+                {leaderboardData ? (
+                    leaderboardData.map((item, i) => (
+                        <LeaderboardItem data={item} isUsersScore={item.username === username} />
+                    ))
+                ) : (
+                    <Loader />
+                )}
             </section>
             <Link to='/settings'>
                 <button type='button'>PLAY AGAIN</button>

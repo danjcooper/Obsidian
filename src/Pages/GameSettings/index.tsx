@@ -8,6 +8,7 @@ import { generateSeasonsString } from '../../Helpers';
 import { ErrorMessages } from '../../Enums';
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
 import { Dispatch } from 'redux';
+import styles from './style.module.css';
 const Filter = require('bad-words');
 
 const GameSettings = () => {
@@ -87,20 +88,21 @@ const GameSettings = () => {
     };
 
     return (
-        <div>
-            {seasonData ? (
-                <form onSubmit={handleSubmit}>
-                    {seasonData.map(i => (
-                        <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
-                    ))}
-                    <input onChange={handleUsernameChange} type='text' />
-                    <button type='submit'>Play!</button>
-                </form>
-            ) : (
-                <Loader />
-            )}
-
-            {formError.error ? <ErrorModal message={formError.message} /> : null}
+        <div className='page'>
+            <section className={styles.formContainer}>
+                {seasonData ? (
+                    <form className={styles.seasonsForms} onSubmit={handleSubmit}>
+                        {seasonData.map(i => (
+                            <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
+                        ))}
+                        <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' />
+                        <button type='submit'>Play!</button>
+                        {formError.error ? <ErrorModal message={formError.message} /> : null}
+                    </form>
+                ) : (
+                    <Loader />
+                )}
+            </section>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { generateRoundData } from '../../Helpers';
 import { roundData } from '../../Interfaces';
 import { props } from './interfaces';
 import { Loader, Question, CountdownTimer, HousemateCard } from '../index';
+import styles from './style.module.css';
 
 const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, updateRoundPoints }: props) => {
     const [roundData, setRoundData] = useState<roundData | null>(null);
@@ -32,10 +33,11 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, upd
     };
 
     return (
-        <div>
+        <section className={styles.housemateContainer}>
             {roundData ? (
                 <>
                     <CountdownTimer points={points} />
+
                     <HousemateCard housemateData={roundData.housemateOne} handleClick={handleClick} />
                     <Question text={roundData.question} />
                     <HousemateCard housemateData={roundData.housemateTwo} handleClick={handleClick} />
@@ -43,7 +45,7 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, upd
             ) : (
                 <Loader />
             )}
-        </div>
+        </section>
     );
 };
 

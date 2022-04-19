@@ -3,6 +3,7 @@ import { GameStates } from '../../Enums';
 import { specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
 import { props } from './interfaces';
+import styles from './style.module.css';
 
 export const GameplayResult = ({
     isWinner,
@@ -18,6 +19,10 @@ export const GameplayResult = ({
         triggered: false,
         eventData: { text: null, positive: null, name: null },
     });
+
+    const bgStyle = {
+        background: isWinner ? '#64c368' : '#E07878',
+    };
 
     useEffect(() => {
         // Based on the result, either add to the score or remove a life.
@@ -37,9 +42,23 @@ export const GameplayResult = ({
     };
 
     return (
-        <div>
-            {isWinner ? <h2>winner</h2> : <h2>loser</h2>}
+        <div style={bgStyle} className={styles.results + ' page'}>
+            <section>
+                <img
+                    src='https://upload.wikimedia.org/wikipedia/en/6/60/Terrace_House_Franchise_Logo.jpg'
+                    alt='winning housemate image'
+                />
+                {isWinner ? (
+                    <>
+                        <h2>Correct!</h2> <p>You scored {roundPoints} points.</p>
+                    </>
+                ) : (
+                    <h2>Wrong!</h2>
+                )}
+            </section>
+
             <button onClick={handleClick}>Next Round</button>
+
             {specialEvent.triggered ? (
                 <div>
                     <h2>{specialEvent.eventData.text}</h2>

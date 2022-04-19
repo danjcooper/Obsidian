@@ -1,11 +1,48 @@
 .active {
-    color: pink;
+    color: white;
+    background-color: #64c368;
+}
+input[type='checkbox'] {
+    display: none;
 }
 .loader {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 100vw;
+    width: 100%;
     height: 100vh;
+}
+
+.App {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    background-color: rgb(235, 235, 235);
+}
+
+main {
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+main section {
+    flex-grow: 1;
+}
+.page {
+    width: 500px;
+    height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        width: 100vw;
+    }
+    .App {
+        min-height: -webkit-fill-available;
+    }
 }

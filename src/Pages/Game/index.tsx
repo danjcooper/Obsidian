@@ -115,10 +115,10 @@ const Game = () => {
     return (
         <>
             <ScoreBoard score={score} lives={lives} streak={streak} />
-            <div>
+            <>
                 {housemateData ? renderGameplayComponent() : <Loader />}
                 {formError.error ? <p>{formError.message}</p> : null}
-            </div>
+            </>
         </>
     );
 };

@@ -1,0 +1,33 @@
+.seasonsForms {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.seasonsForms input {
+    width: 80%;
+    height: 30px;
+    text-align: center;
+    margin: 15px auto;
+}
+.seasonsForms button {
+    width: 80%;
+    height: 40px;
+
+    border-radius: 50px;
+    border-style: none;
+
+    font-size: 20px;
+
+    color: white;
+    background-color: #64c368;
+
+    outline: none;
+}
+.formContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}

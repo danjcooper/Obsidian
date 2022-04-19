@@ -63,6 +63,7 @@ export interface specialEvent {
 }
 
 export interface leaderboard {
+    position: number;
     id: number;
     username: string;
     score: number;

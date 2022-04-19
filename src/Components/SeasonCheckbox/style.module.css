@@ -1,0 +1,10 @@
+.seasonLabel {
+    display: inline-block;
+    min-width: 150px;
+
+    text-align: center;
+    margin: 15px;
+    padding: 7.5px 15px;
+    border-radius: 50px;
+    border: 2px solid #64c368;
+}
