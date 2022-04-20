@@ -1,7 +1,7 @@
 export interface props {
     isWinner: any;
     updateGameState: (input: string) => void;
-    updateScore: (input: number) => void;
+    updateScore: (input: number, positive?: boolean) => void;
     updateLives: () => void;
     specialEventData: any;
     updateStreak: (input: boolean) => void;

@@ -25,7 +25,26 @@ function App() {
                                     updateLives={() => {}}
                                     updateScore={() => {}}
                                     updateStreak={() => {}}
-                                    specialEventData={[]}
+                                    specialEventData={[
+                                        {
+                                            effectid: 1,
+                                            housemate: 'Makoto Hasegawa',
+                                            positive: false,
+                                            special: false,
+                                            description: 'Mizuki calls you out at 3am.',
+                                            imageurl: '',
+                                            seasonid: 3,
+                                        },
+                                        {
+                                            effectid: 3,
+                                            housemate: 'Minori Nakada',
+                                            positive: true,
+                                            special: false,
+                                            description: 'You get free a free pair of shoes from Makoto.',
+                                            imageurl: '',
+                                            seasonid: 3,
+                                        },
+                                    ]}
                                 />
                             </>
                         }

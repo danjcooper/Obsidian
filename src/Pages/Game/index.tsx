@@ -76,7 +76,10 @@ const Game = () => {
         });
     };
 
-    const updateScore = (points: number) => setScore(prevState => (prevState += points));
+    const updateScore = (points: number, positive: boolean = true) =>
+        setScore(prevState => {
+            return positive ? (prevState += points) : (prevState -= points);
+        });
     const updateLives = () => setLives(prevState => prevState - 1);
     const updateRoundPoints = (input: number) => setRoundPoints(input);
 

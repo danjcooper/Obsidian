@@ -96,7 +96,7 @@ const streakMilestone = (streak: number): boolean => {
 };
 
 const addSpecialEvent = (): boolean => {
-    return Math.round(Math.random()) % 2 === 0;
+    return Math.round(Math.random() * 10) === 10;
 };
 
 const getRandomSpecialEvent = (eventData: effectData[]): specialEvent => {

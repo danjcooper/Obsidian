@@ -19,6 +19,11 @@
     border: 10px solid white;
 }
 
+.result p,
+h2 {
+    padding: 0 10%;
+}
+
 .results button {
     width: 80%;
     height: 40px;
@@ -32,6 +37,20 @@
     color: #64c368;
 
     outline: none;
+}
+
+.open {
+    top: 0;
+}
+
+.eventDiv {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 100vh;
+    left: 0;
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 0.337);
 }
 
 @media only screen and (max-width: 768px) {

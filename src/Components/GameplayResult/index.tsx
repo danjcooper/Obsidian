@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, LegacyRef, CSSProperties } from 'react';
 import { GameStates } from '../../Enums';
 import { specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
 import { props } from './interfaces';
 import styles from './style.module.css';
+import { CSSTransition } from 'react-transition-group';
 import Modal from '../Modal';
 
 export const GameplayResult = ({
@@ -18,8 +19,10 @@ export const GameplayResult = ({
 }: props) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
-        eventData: { text: null, positive: null, name: null },
+        eventData: { name: null, positive: null, text: null },
     });
+
+    const divRef = useRef<HTMLDivElement>(null);
 
     const bgStyle = {
         background: isWinner ? '#64c368' : '#E07878',
@@ -30,13 +33,15 @@ export const GameplayResult = ({
         isWinner ? updateScore(roundPoints) : updateLives();
         updateStreak(isWinner);
 
-        // IF the conditions for a special event are met then add then special event is activated.
-        if (streakMilestone(streak + 1) && addSpecialEvent()) {
-            const updatedEventData: specialEvent = getRandomSpecialEvent(specialEventData);
-            setSpecialEvent(updatedEventData);
-            updateScore(30000000);
-        }
+        // If the conditions for a special event are met then add then special event is activated.
+        if (isWinner && addSpecialEvent()) setSpecialEvent(getRandomSpecialEvent(specialEventData));
     }, []);
+
+    useEffect(() => {
+        if (specialEvent.eventData.positive !== null) updateScore(100, specialEvent.eventData.positive);
+
+        if (divRef.current && specialEvent.triggered) divRef.current.style.top = '0';
+    }, [specialEvent]);
 
     const handleClick = () => {
         updateGameState(GameStates.ANSWERING);
@@ -56,17 +61,14 @@ export const GameplayResult = ({
                 ) : (
                     <h2>Wrong!</h2>
                 )}
-                <Modal />
+                <div className={styles.eventDiv} ref={divRef}>
+                    <h2>{specialEvent.eventData.positive ? 'and' : 'but...'}</h2>
+                    <h2>{specialEvent.eventData.text}</h2>
+                    <p>{specialEvent.eventData.positive ? '+' : '-'} 100 points</p>
+                </div>
             </section>
 
             <button onClick={handleClick}>Next Round</button>
-
-            {specialEvent.triggered ? (
-                <div>
-                    <h2>{specialEvent.eventData.text}</h2>
-                    <p>{specialEvent.eventData.name}</p>
-                </div>
-            ) : null}
         </div>
     );
 };
