@@ -12,7 +12,7 @@
 .cardImg {
     width: 150px;
     height: 150px;
-    border-radius: 150px;
+    border-radius: 300px;
     border: 10px solid #64c368;
 }
 
@@ -32,6 +32,6 @@
     .cardImg {
         width: 100px;
         height: 100px;
-        border-radius: 50px;
+        border-radius: 100px;
     }
 }
