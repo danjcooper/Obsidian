@@ -1,17 +1,13 @@
-import React, { Children, useState } from 'react';
+import React from 'react';
 import styles from './style.module.css';
+import { props } from './interfaces';
 
-const Modal = ({ show, close, children }: any) => {
-    return (
+const Modal = ({ show, close, children }: props) => {
+    return show ? (
         <div>
-            {show ? (
-                <>
-                    <div className={show ? styles.active : styles.inactive}>{children}</div>
-                    <button onClick={close}>Open</button>
-                </>
-            ) : null}
+            <div className={show ? styles.active : styles.inactive}>{children}</div>
         </div>
-    );
+    ) : null;
 };
 
 export default Modal;

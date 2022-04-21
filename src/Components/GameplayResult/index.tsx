@@ -23,8 +23,6 @@ export const GameplayResult = ({
         eventData: { name: null, positive: null, text: null, imageUrl: '' },
     });
 
-    const divRef = useRef<HTMLDivElement>(null);
-
     const bgStyle = {
         background: isWinner ? '#64c368' : '#E07878',
     };
@@ -40,7 +38,6 @@ export const GameplayResult = ({
 
     useEffect(() => {
         if (specialEvent.eventData.positive !== null) updateScore(100, specialEvent.eventData.positive);
-        if (divRef.current && specialEvent.triggered) divRef.current.style.top = '0';
     }, [specialEvent]);
 
     const handleClick = () => {
@@ -66,14 +63,10 @@ export const GameplayResult = ({
                     show={specialEvent.triggered}
                     close={() => setSpecialEvent({ ...specialEvent, triggered: false })}
                 >
-                    <div className={styles.eventDiv} ref={divRef}>
-                        <h2>Incident!</h2>
-                        <img src={specialEvent.eventData.imageUrl} alt='image of event depicted' />
-                        <h2>{specialEvent.eventData.text}</h2>
-                        <h3>{specialEvent.eventData.positive ? '+' : '-'} 100 bonus points</h3>
-                        <button onClick={handleClick}>Next Round</button>
-                    </div>
-                    <Incident />
+                    <Incident
+                        specialEvent={specialEvent}
+                        close={() => setSpecialEvent({ ...specialEvent, triggered: false })}
+                    />
                 </Modal>
             </section>
 
