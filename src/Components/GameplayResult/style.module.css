@@ -55,6 +55,13 @@ h2 {
     background-color: #64c368;
 }
 
+.eventDiv img {
+    width: 100%;
+    height: unset;
+    border: unset;
+    border-radius: unset;
+}
+
 @media only screen and (max-width: 768px) {
     .results {
         width: 100%;
