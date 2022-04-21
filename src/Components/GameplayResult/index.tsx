@@ -6,6 +6,7 @@ import { props } from './interfaces';
 import styles from './style.module.css';
 import { CSSTransition } from 'react-transition-group';
 import Modal from '../Modal';
+import Incident from '../Incident';
 
 export const GameplayResult = ({
     isWinner,
@@ -39,7 +40,6 @@ export const GameplayResult = ({
 
     useEffect(() => {
         if (specialEvent.eventData.positive !== null) updateScore(100, specialEvent.eventData.positive);
-
         if (divRef.current && specialEvent.triggered) divRef.current.style.top = '0';
     }, [specialEvent]);
 
@@ -61,13 +61,20 @@ export const GameplayResult = ({
                 ) : (
                     <h2>Wrong!</h2>
                 )}
-                <div className={styles.eventDiv} ref={divRef}>
-                    <h2>Incident!</h2>
-                    <img src={specialEvent.eventData.imageUrl} alt='image of event depicted' />
-                    <h2>{specialEvent.eventData.text}</h2>
-                    <h3>{specialEvent.eventData.positive ? '+' : '-'} 100 bonus points</h3>
-                    <button onClick={handleClick}>Next Round</button>
-                </div>
+
+                <Modal
+                    show={specialEvent.triggered}
+                    close={() => setSpecialEvent({ ...specialEvent, triggered: false })}
+                >
+                    <div className={styles.eventDiv} ref={divRef}>
+                        <h2>Incident!</h2>
+                        <img src={specialEvent.eventData.imageUrl} alt='image of event depicted' />
+                        <h2>{specialEvent.eventData.text}</h2>
+                        <h3>{specialEvent.eventData.positive ? '+' : '-'} 100 bonus points</h3>
+                        <button onClick={handleClick}>Next Round</button>
+                    </div>
+                    <Incident />
+                </Modal>
             </section>
 
             <button onClick={handleClick}>Next Round</button>
