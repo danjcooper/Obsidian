@@ -19,7 +19,7 @@ export const GameplayResult = ({
 }: props) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
-        eventData: { name: null, positive: null, text: null },
+        eventData: { name: null, positive: null, text: null, imageUrl: '' },
     });
 
     const divRef = useRef<HTMLDivElement>(null);
@@ -62,9 +62,11 @@ export const GameplayResult = ({
                     <h2>Wrong!</h2>
                 )}
                 <div className={styles.eventDiv} ref={divRef}>
-                    <h2>{specialEvent.eventData.positive ? 'and' : 'but...'}</h2>
+                    <h2>Incident!</h2>
+                    <img src={specialEvent.eventData.imageUrl} alt='image of event depicted' />
                     <h2>{specialEvent.eventData.text}</h2>
-                    <p>{specialEvent.eventData.positive ? '+' : '-'} 100 points</p>
+                    <h3>{specialEvent.eventData.positive ? '+' : '-'} 100 bonus points</h3>
+                    <button onClick={handleClick}>Next Round</button>
                 </div>
             </section>
 

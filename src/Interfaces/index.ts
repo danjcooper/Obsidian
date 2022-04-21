@@ -59,7 +59,7 @@ type eventBool = boolean | null;
 
 export interface specialEvent {
     triggered: boolean;
-    eventData: { text: eventText; positive: eventBool; name: eventText };
+    eventData: { text: eventText; positive: eventBool; name: eventText; imageUrl: string };
 }
 
 export interface leaderboard {

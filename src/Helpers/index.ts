@@ -104,7 +104,12 @@ const getRandomSpecialEvent = (eventData: effectData[]): specialEvent => {
     const randomEvent = eventData[index];
     return {
         triggered: true,
-        eventData: { text: randomEvent.description, positive: randomEvent.positive, name: randomEvent.housemate },
+        eventData: {
+            text: randomEvent.description,
+            positive: randomEvent.positive,
+            name: randomEvent.housemate,
+            imageUrl: randomEvent.imageurl,
+        },
     };
 };
 

@@ -28,20 +28,12 @@ function App() {
                                     specialEventData={[
                                         {
                                             effectid: 1,
-                                            housemate: 'Makoto Hasegawa',
-                                            positive: false,
-                                            special: false,
-                                            description: 'Mizuki calls you out at 3am.',
-                                            imageurl: '',
-                                            seasonid: 3,
-                                        },
-                                        {
-                                            effectid: 3,
-                                            housemate: 'Minori Nakada',
+                                            housemate: 'Peppe',
                                             positive: true,
                                             special: false,
-                                            description: 'You get free a free pair of shoes from Makoto.',
-                                            imageurl: '',
+                                            description: 'Peppe makes you a refreshing Aperol Spritz.',
+                                            imageurl:
+                                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDCZjjgKZ-3vryKYOqBhulKgTFfG0_K9_zLg&usqp=CAU',
                                             seasonid: 3,
                                         },
                                     ]}
