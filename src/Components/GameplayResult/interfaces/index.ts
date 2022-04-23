@@ -7,4 +7,5 @@ export interface props {
     updateStreak: (input: boolean) => void;
     streak: number;
     roundPoints: number;
+    correctHousemate: any;
 }

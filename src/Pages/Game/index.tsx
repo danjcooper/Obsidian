@@ -13,13 +13,13 @@ import { Loader, GameplayAnsweing, GameplayGameOver, GameplayResult, ScoreBoard 
 const Game = () => {
     const [housemateData, setHousemateData] = useState<housemateData[] | null>(null);
     const [effectsData, setEffectsData] = useState<effectData[] | null>(null);
-    const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
     const [gameState, setGameState] = useState<string>(GameStates.ANSWERING);
     const [isWinner, setIsWinner] = useState<boolean | null>(null);
     const [score, setScore] = useState<number>(0);
     const [lives, setLives] = useState<number>(3);
     const [streak, setStreak] = useState<number>(0);
     const [roundPoints, setRoundPoints] = useState<number>(0);
+    const [correctHousemate, setCorrectHousemate] = useState<any>(null);
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
     const dispatch: Dispatch = useDispatch();
@@ -49,6 +49,10 @@ const Game = () => {
     useEffect(() => {
         if (lives <= 0) updateGameState(GameStates.GAME_OVER);
     }, [lives]);
+
+    const updateCorrectHousemate = (input: any) => {
+        setCorrectHousemate(input);
+    };
 
     const updateGameState = (newState: string): void => {
         switch (newState) {
@@ -88,6 +92,7 @@ const Game = () => {
                         updateGameState={updateGameState}
                         updateIsWinner={updateIsWinner}
                         updateRoundPoints={updateRoundPoints}
+                        updateCorrectHousemate={updateCorrectHousemate}
                     />
                 );
             case GameStates.RESULT:
@@ -101,6 +106,7 @@ const Game = () => {
                         specialEventData={effectsData}
                         streak={streak}
                         roundPoints={roundPoints}
+                        correctHousemate={correctHousemate}
                     />
                 );
             case GameStates.GAME_OVER:

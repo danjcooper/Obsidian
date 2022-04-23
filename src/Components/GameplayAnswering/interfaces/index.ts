@@ -5,4 +5,5 @@ export interface props {
     updateGameState: (input: string) => void;
     updateIsWinner: (input: boolean) => void;
     updateRoundPoints: (input: number) => void;
+    updateCorrectHousemate: (input: any) => void;
 }

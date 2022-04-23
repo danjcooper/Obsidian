@@ -15,6 +15,7 @@ export const GameplayResult = ({
     specialEventData,
     updateStreak,
     roundPoints,
+    correctHousemate,
 }: props) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
         triggered: false,
@@ -46,7 +47,7 @@ export const GameplayResult = ({
         <div style={bgStyle} className={styles.results + ' page'}>
             <section>
                 <img
-                    src='https://upload.wikimedia.org/wikipedia/en/6/60/Terrace_House_Franchise_Logo.jpg'
+                    src={`https://raw.githubusercontent.com/danjcooper/Obsidian/main/images${correctHousemate.imageUrl}`}
                     alt='winning housemate image'
                 />
                 {isWinner ? (

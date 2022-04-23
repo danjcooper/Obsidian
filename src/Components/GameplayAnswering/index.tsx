@@ -6,7 +6,13 @@ import { props } from './interfaces';
 import { Loader, Question, CountdownTimer, HousemateCard } from '../index';
 import styles from './style.module.css';
 
-const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, updateRoundPoints }: props) => {
+const GameplayAnswering = ({
+    housemateData,
+    updateGameState,
+    updateIsWinner,
+    updateRoundPoints,
+    updateCorrectHousemate,
+}: props) => {
     const [roundData, setRoundData] = useState<roundData | null>(null);
     const [points, setPoints] = useState<number>(100);
 
@@ -35,6 +41,12 @@ const GameplayAnswering = ({ housemateData, updateGameState, updateIsWinner, upd
     const endRound = (isWinner: boolean, points: number) => {
         updateIsWinner(isWinner);
         updateRoundPoints(points);
+        if (roundData) {
+            updateCorrectHousemate(
+                roundData.housemateOne.id === roundData.winner ? roundData.housemateOne : roundData.housemateTwo
+            );
+        }
+
         updateGameState(GameStates.RESULT);
     };
 
