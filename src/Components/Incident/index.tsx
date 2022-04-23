@@ -5,7 +5,10 @@ const Incident = ({ specialEvent, close }: any) => {
     const divRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (divRef.current && specialEvent.triggered) divRef.current.style.top = '0';
+        if (divRef.current && specialEvent.triggered) {
+            divRef.current.style.width = '80%';
+            divRef.current.style.height = 'auto';
+        }
     }, [specialEvent]);
 
     return (
