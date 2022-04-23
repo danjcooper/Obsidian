@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef, LegacyRef, CSSProperties } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GameStates } from '../../Enums';
 import { specialEvent } from '../../Interfaces';
-import { getRandomSpecialEvent, addSpecialEvent, streakMilestone } from '../../Helpers';
+import { getRandomSpecialEvent, addSpecialEvent } from '../../Helpers';
 import { props } from './interfaces';
 import styles from './style.module.css';
-import { CSSTransition } from 'react-transition-group';
 import Modal from '../Modal';
 import Incident from '../Incident';
 
