@@ -47,10 +47,6 @@ const Game = () => {
     }, [housemateData]);
 
     useEffect(() => {
-        if (formError.error) setGameState(GameStates.GAME_OVER);
-    }, [formError]);
-
-    useEffect(() => {
         if (lives <= 0) updateGameState(GameStates.GAME_OVER);
     }, [lives]);
 
@@ -118,10 +114,7 @@ const Game = () => {
     return (
         <>
             <ScoreBoard score={score} lives={lives} streak={streak} />
-            <>
-                {housemateData ? renderGameplayComponent() : <Loader />}
-                {formError.error ? <p>{formError.message}</p> : null}
-            </>
+            <>{housemateData ? renderGameplayComponent() : <Loader />}</>
         </>
     );
 };

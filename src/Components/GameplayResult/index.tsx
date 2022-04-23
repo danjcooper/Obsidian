@@ -14,7 +14,6 @@ export const GameplayResult = ({
     updateLives,
     specialEventData,
     updateStreak,
-    streak,
     roundPoints,
 }: props) => {
     const [specialEvent, setSpecialEvent] = useState<specialEvent>({
