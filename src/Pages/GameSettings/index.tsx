@@ -56,7 +56,9 @@ const GameSettings = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        if (username.length <= 0 || selectedSeasonsQueryString.length <= 0 || filter.isProfane(username)) {
+        if (formError.error) return;
+
+        if (username.length <= 0 || selectedSeasonsQueryString.length <= 0) {
             const errorMessage: string =
                 username.length <= 0 ? ErrorMessages.NO_USERNAME : ErrorMessages.NO_SEASON_SELECTED;
 
