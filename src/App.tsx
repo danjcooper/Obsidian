@@ -32,19 +32,21 @@ function App() {
                                         totalLivedWith: 30,
                                         totalWeeksInHouse: 40,
                                     }}
-                                    isWinner={false}
+                                    isWinner={true}
                                     roundPoints={200}
                                     streak={1000}
                                     updateGameState={() => {}}
                                     updateLives={() => {}}
                                     updateScore={() => {}}
                                     updateStreak={() => {}}
-                                    specialEventData={{
-                                        description: 'hi',
-                                        housemate: 'Yama',
-                                        positive: true,
-                                        imageUrl: 'https://i.redd.it/n5iytbe7t0431.jpg',
-                                    }}
+                                    specialEventData={[
+                                        {
+                                            description: 'hi',
+                                            housemate: 'Yama',
+                                            positive: true,
+                                            imageUrl: 'https://i.redd.it/n5iytbe7t0431.jpg',
+                                        },
+                                    ]}
                                 />
                             </>
                         }

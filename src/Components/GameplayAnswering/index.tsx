@@ -60,13 +60,13 @@ const GameplayAnswering = ({
                 <>
                     <CountdownTimer points={points} />
                     <HousemateCard
-                        delayBeforeDisplay={1500}
+                        delayBeforeDisplay={1250}
                         housemateData={roundData.housemateOne}
                         handleClick={handleClick}
                     />
                     <Question delayBeforeDisplay={0} text={roundData.question} />
                     <HousemateCard
-                        delayBeforeDisplay={2500}
+                        delayBeforeDisplay={2250}
                         housemateData={roundData.housemateTwo}
                         handleClick={handleClick}
                     />
