@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSpring, animated, easings } from 'react-spring';
 import { GameStates } from '../../Enums';
 import { specialEvent } from '../../Interfaces';
 import { getRandomSpecialEvent, addSpecialEvent } from '../../Helpers';
@@ -23,8 +24,17 @@ export const GameplayResult = ({
     });
 
     const bgStyle = {
-        background: isWinner ? '#64c368' : '#E07878',
+        background: isWinner ? '#64c368' : '#C1C1C1',
     };
+
+    const props = useSpring({
+        to: { opacity: 1 },
+        from: { opacity: 0 },
+        config: {
+            duration: 500,
+            easing: easings.linear,
+        },
+    });
 
     useEffect(() => {
         // Based on the result, either add to the score or remove a life.
@@ -46,17 +56,21 @@ export const GameplayResult = ({
     return (
         <div style={bgStyle} className={styles.results + ' page'}>
             <section>
-                <img
+                <animated.img
                     src={`https://raw.githubusercontent.com/danjcooper/Obsidian/main/images${correctHousemate.imageUrl}`}
                     alt='winning housemate image'
+                    style={props}
                 />
+
                 {isWinner ? (
                     <>
-                        <h2>Correct!</h2> <p>You scored {roundPoints} points.</p>
+                        <h2>Correct!</h2>
                     </>
                 ) : (
-                    <h2>Wrong!</h2>
+                    <h2>Incorrect 🙁</h2>
                 )}
+                <h3>The correct answer was {correctHousemate.name}</h3>
+                <p>You scored {roundPoints} points.</p>
 
                 <Modal
                     show={specialEvent.triggered}

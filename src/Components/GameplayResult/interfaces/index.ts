@@ -1,3 +1,5 @@
+import { housemateData } from '../../../Interfaces';
+
 export interface props {
     isWinner: any;
     updateGameState: (input: string) => void;
@@ -7,5 +9,5 @@ export interface props {
     updateStreak: (input: boolean) => void;
     streak: number;
     roundPoints: number;
-    correctHousemate: any;
+    correctHousemate: housemateData;
 }

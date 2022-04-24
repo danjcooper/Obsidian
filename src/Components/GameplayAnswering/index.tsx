@@ -17,7 +17,11 @@ const GameplayAnswering = ({
     const [points, setPoints] = useState<number>(100);
 
     useEffect(() => {
-        const interval = setInterval(() => setPoints(points => (points > 0 ? points - 1 : points)), 100);
+        let interval: any;
+        setTimeout(() => {
+            interval = setInterval(() => setPoints(points => (points > 0 ? points - 1 : points)), 100);
+        }, 3600);
+
         return () => clearInterval(interval);
     }, []);
 
@@ -55,9 +59,17 @@ const GameplayAnswering = ({
             {roundData ? (
                 <>
                     <CountdownTimer points={points} />
-                    <HousemateCard housemateData={roundData.housemateOne} handleClick={handleClick} />
-                    <Question text={roundData.question} />
-                    <HousemateCard housemateData={roundData.housemateTwo} handleClick={handleClick} />
+                    <HousemateCard
+                        delayBeforeDisplay={1500}
+                        housemateData={roundData.housemateOne}
+                        handleClick={handleClick}
+                    />
+                    <Question delayBeforeDisplay={0} text={roundData.question} />
+                    <HousemateCard
+                        delayBeforeDisplay={2500}
+                        housemateData={roundData.housemateTwo}
+                        handleClick={handleClick}
+                    />
                 </>
             ) : (
                 <Loader />

@@ -17,6 +17,35 @@ function App() {
                         element={
                             <>
                                 <ScoreBoard lives={2} score={2} streak={2} />
+                                <GameplayResult
+                                    correctHousemate={{
+                                        id: 1,
+                                        age: 30,
+                                        ageWhenEntered: 20,
+                                        imageUrl: '/amikomuro.png',
+                                        name: 'Yama',
+                                        nickname: 'Cherry Boy',
+                                        instagramFollowers: 300000,
+                                        seasonName: 'Panel',
+                                        tagline: 'I hate it.',
+                                        totalDates: 2,
+                                        totalLivedWith: 30,
+                                        totalWeeksInHouse: 40,
+                                    }}
+                                    isWinner={false}
+                                    roundPoints={200}
+                                    streak={1000}
+                                    updateGameState={() => {}}
+                                    updateLives={() => {}}
+                                    updateScore={() => {}}
+                                    updateStreak={() => {}}
+                                    specialEventData={{
+                                        description: 'hi',
+                                        housemate: 'Yama',
+                                        positive: true,
+                                        imageUrl: 'https://i.redd.it/n5iytbe7t0431.jpg',
+                                    }}
+                                />
                             </>
                         }
                     />
