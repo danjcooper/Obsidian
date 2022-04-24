@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { GameplayResult, ScoreBoard } from './Components';
+import { GameplayAnsweing, GameplayResult, ScoreBoard } from './Components';
 import { Homepage, GameSettings, Game } from './Pages';
 
 function App() {
@@ -17,36 +17,41 @@ function App() {
                         element={
                             <>
                                 <ScoreBoard lives={2} score={2} streak={2} />
-                                <GameplayResult
-                                    correctHousemate={{
-                                        id: 1,
-                                        age: 30,
-                                        ageWhenEntered: 20,
-                                        imageUrl: '/amikomuro.png',
-                                        name: 'Yama',
-                                        nickname: 'Cherry Boy',
-                                        instagramFollowers: 300000,
-                                        seasonName: 'Panel',
-                                        tagline: 'I hate it.',
-                                        totalDates: 2,
-                                        totalLivedWith: 30,
-                                        totalWeeksInHouse: 40,
-                                    }}
-                                    isWinner={true}
-                                    roundPoints={200}
-                                    streak={1000}
-                                    updateGameState={() => {}}
-                                    updateLives={() => {}}
-                                    updateScore={() => {}}
-                                    updateStreak={() => {}}
-                                    specialEventData={[
+                                <GameplayAnsweing
+                                    housemateData={[
                                         {
-                                            description: 'hi',
-                                            housemate: 'Yama',
-                                            positive: true,
-                                            imageUrl: 'https://i.redd.it/n5iytbe7t0431.jpg',
+                                            id: 5,
+                                            name: 'Tsubasa Sato',
+                                            nickname: 'null',
+                                            tagline: 'null',
+                                            totalWeeksInHouse: 21,
+                                            totalLivedWith: 8,
+                                            totalDates: 0,
+                                            instagramFollowers: 0,
+                                            age: 28,
+                                            ageWhenEntered: 25,
+                                            imageUrl: '/tsubasasato.png',
+                                            seasonName: 'Opening New Doors',
+                                        },
+                                        {
+                                            id: 6,
+                                            name: 'Shion Okamoto',
+                                            nickname: 'null',
+                                            tagline: 'null',
+                                            totalWeeksInHouse: 21,
+                                            totalLivedWith: 8,
+                                            totalDates: 0,
+                                            instagramFollowers: 0,
+                                            age: 27,
+                                            ageWhenEntered: 23,
+                                            imageUrl: '/shionokamoto.png',
+                                            seasonName: 'Opening New Doors',
                                         },
                                     ]}
+                                    updateCorrectHousemate={() => {}}
+                                    updateGameState={() => {}}
+                                    updateIsWinner={() => {}}
+                                    updateRoundPoints={() => {}}
                                 />
                             </>
                         }

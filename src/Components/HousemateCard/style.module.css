@@ -3,10 +3,27 @@
     flex-grow: 1;
 
     display: flex;
-    align-items: center;
-    gap: 20px;
 
-    padding: 0 25px;
+    gap: 20px;
+}
+.TOP {
+    align-items: flex-end;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.BOTTOM {
+    align-items: flex-start;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.housemateData {
+    color: white;
+    text-align: center;
+}
+.housemateData * {
+    width: 100%;
 }
 
 .cardImg {
@@ -27,7 +44,6 @@
 @media only screen and (max-width: 768px) {
     .card {
         display: flex;
-        align-items: center;
     }
     .cardImg {
         width: 100px;

@@ -39,4 +39,9 @@ enum GameQuestions {
     OLDER_WHEN_ENTERED = 'Who was older when they entered the house?',
 }
 
-export { SeasonCodes, ActionTypes, ErrorMessages, GameStates, GameQuestions };
+enum HousemateCardPosition {
+    TOP = 'TOP',
+    BOTTOM = 'BOTTOM',
+}
+
+export { SeasonCodes, ActionTypes, ErrorMessages, GameStates, GameQuestions, HousemateCardPosition };

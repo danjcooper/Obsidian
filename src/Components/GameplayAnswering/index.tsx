@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GameStates } from '../../Enums';
+import { GameStates, HousemateCardPosition } from '../../Enums';
 import { generateRoundData } from '../../Helpers';
 import { roundData } from '../../Interfaces';
 import { props } from './interfaces';
@@ -63,12 +63,14 @@ const GameplayAnswering = ({
                         delayBeforeDisplay={1250}
                         housemateData={roundData.housemateOne}
                         handleClick={handleClick}
+                        position={HousemateCardPosition.TOP}
                     />
                     <Question delayBeforeDisplay={0} text={roundData.question} />
                     <HousemateCard
                         delayBeforeDisplay={2250}
                         housemateData={roundData.housemateTwo}
                         handleClick={handleClick}
+                        position={HousemateCardPosition.BOTTOM}
                     />
                 </>
             ) : (
