@@ -5,7 +5,7 @@ import { props } from './interfaces';
 import styles from './style.module.css';
 
 const HousemateCard = ({ housemateData, handleClick, delayBeforeDisplay, position }: props) => {
-    const baseImageUrl = 'https://raw.githubusercontent.com/danjcooper/Obsidian/main/images/';
+    const baseImageUrl = 'https://raw.githubusercontent.com/danjcooper/Obsidian/main/images';
 
     const animationProperties = useSpring({
         to: { opacity: 1 },
