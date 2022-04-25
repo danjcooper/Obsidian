@@ -5,5 +5,4 @@ export interface props {
     housemateData: housemateData;
     handleClick: (e: React.MouseEvent<HTMLDivElement>) => void;
     delayBeforeDisplay: number;
-    position: HousemateCardPosition;
 }

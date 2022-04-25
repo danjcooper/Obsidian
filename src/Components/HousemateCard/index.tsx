@@ -4,7 +4,7 @@ import { useSpring, animated, easings } from 'react-spring';
 import { props } from './interfaces';
 import styles from './style.module.css';
 
-const HousemateCard = ({ housemateData, handleClick, delayBeforeDisplay, position }: props) => {
+const HousemateCard = ({ housemateData, handleClick, delayBeforeDisplay }: props) => {
     const baseImageUrl = 'https://raw.githubusercontent.com/danjcooper/Obsidian/main/images';
 
     const animationProperties = useSpring({
@@ -26,11 +26,11 @@ const HousemateCard = ({ housemateData, handleClick, delayBeforeDisplay, positio
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
             }}
-            className={styles.card + ' ' + styles[position]}
+            className={styles.card}
             id={housemateData.id.toString()}
             onClick={handleClick}
         >
-            <section className={styles.housemateData + ' ' + styles[position]}>
+            <section className={styles.housemateData}>
                 <h3 className={styles.heading}>{housemateData.name}</h3>
                 {housemateData.nickname ? <p className={styles.text}>{housemateData.nickname}</p> : null}
                 <p className={styles.text}>{housemateData.seasonName}</p>

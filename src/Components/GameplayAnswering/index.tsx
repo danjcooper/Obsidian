@@ -63,14 +63,12 @@ const GameplayAnswering = ({
                         delayBeforeDisplay={1250}
                         housemateData={roundData.housemateOne}
                         handleClick={handleClick}
-                        position={HousemateCardPosition.TOP}
                     />
                     <Question delayBeforeDisplay={0} text={roundData.question} />
                     <HousemateCard
                         delayBeforeDisplay={2250}
                         housemateData={roundData.housemateTwo}
                         handleClick={handleClick}
-                        position={HousemateCardPosition.BOTTOM}
                     />
                 </>
             ) : (
