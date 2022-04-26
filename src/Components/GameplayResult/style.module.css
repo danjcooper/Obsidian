@@ -19,6 +19,7 @@
     height: 200px;
     border-radius: 300px;
     border: 10px solid white;
+    object-fit: cover;
 }
 
 .result p,
