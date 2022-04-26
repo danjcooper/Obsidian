@@ -70,7 +70,7 @@ export const GameplayResult = ({
                     <h2>Incorrect 🙁</h2>
                 )}
                 <h3>The correct answer was {correctHousemate.name}</h3>
-                <p>You scored {roundPoints} points.</p>
+                <p>You scored {isWinner ? roundPoints : 0} points.</p>
 
                 <Modal
                     show={specialEvent.triggered}
