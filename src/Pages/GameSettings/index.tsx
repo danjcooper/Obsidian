@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SeasonCheckbox, Loader, ErrorModal } from '../../Components';
+import { SeasonCheckbox, Loader, ErrorModal, SeasonSelectionForm } from '../../Components';
 import { seasonData, formError } from '../../Interfaces';
 import { generateSeasonsString } from '../../Helpers';
 import { ErrorMessages } from '../../Enums';
@@ -92,14 +92,17 @@ const GameSettings = () => {
     return (
         <section className={styles.formContainer}>
             {seasonData ? (
-                <form className={styles.seasonsForms} onSubmit={handleSubmit}>
-                    {seasonData.map(i => (
-                        <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
-                    ))}
-                    <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' />
-                    <button type='submit'>Play!</button>
-                    {formError.error ? <ErrorModal message={formError.message} /> : null}
-                </form>
+                <>
+                    <SeasonSelectionForm />
+                    <form className={styles.seasonsForms} onSubmit={handleSubmit}>
+                        {seasonData.map(i => (
+                            <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
+                        ))}
+                        <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' />
+                        <button type='submit'>Play!</button>
+                        {formError.error ? <ErrorModal message={formError.message} /> : null}
+                    </form>
+                </>
             ) : (
                 <Loader />
             )}
