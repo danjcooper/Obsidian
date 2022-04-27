@@ -1,0 +1,69 @@
+.logo {
+    font-weight: 300;
+    text-align: center;
+}
+header {
+    flex-grow: 0;
+}
+
+.gameIntro,
+h3 {
+    text-align: center;
+    font-weight: 300;
+}
+
+.gameIntro *::selection {
+    background-color: #64c368;
+    color: white;
+}
+
+.gameIntro h2 {
+    font-weight: 300;
+    font-size: 55px;
+
+    margin-bottom: 0;
+}
+.gameIntro p {
+    margin-top: 0;
+}
+.homepageContainer {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.playButton {
+    width: 100%;
+    height: 40px;
+
+    background: #64c368;
+
+    border-radius: 50px;
+    border-style: none;
+
+    font-size: 20px;
+
+    color: white;
+    background-color: #64c368;
+
+    outline: none;
+}
+p {
+    text-align: center;
+}
+
+.playButtonLink {
+    align-self: center;
+    width: 80%;
+}
+
+.softLink {
+    color: #64c368;
+    font-weight: 600;
+}
+.softLink:visited {
+    color: #64c368;
+    font-weight: 600;
+}
