@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SeasonCheckbox, Loader, ErrorModal, SeasonSelectionForm } from '../../Components';
-import { seasonData, formError } from '../../Interfaces';
-import { generateSeasonsString } from '../../Helpers';
-import { ErrorMessages } from '../../Enums';
+import { SeasonCheckbox, Loader } from '../../Components';
+import { seasonData } from '../../Interfaces';
+import { formError, generateSeasonsString } from '../../Helpers';
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
 import { Dispatch } from 'redux';
 import styles from './style.module.css';
@@ -16,7 +15,7 @@ const GameSettings = () => {
     const [username, setUsername] = useState<string>('');
     const [selectedSeasons, setSelectedSeasons] = useState<string[]>([]);
     const [selectedSeasonsQueryString, setSelectedSeasonsQueryString] = useState<string>('');
-    const [formError, setFormError] = useState<formError>({ error: false, message: ErrorMessages.NO_ERROR });
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const dispatch: Dispatch = useDispatch();
     const navigate = useNavigate();
@@ -31,7 +30,7 @@ const GameSettings = () => {
     }, []);
 
     useEffect(() => {
-        if (seasonData !== null) dispatch(updateSeasonData(seasonData));
+        if (seasonData) dispatch(updateSeasonData(seasonData));
     }, [seasonData]);
 
     useEffect(() => {
@@ -40,7 +39,6 @@ const GameSettings = () => {
 
     const handleClick = (e: React.MouseEvent<HTMLInputElement>): void => {
         const input: string = e.currentTarget.value;
-
         const updatedState: string[] = [...selectedSeasons];
 
         const label = e.currentTarget.closest('label');
@@ -56,53 +54,32 @@ const GameSettings = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        if (formError.error) return;
 
-        if (username.length <= 0 || selectedSeasonsQueryString.length <= 0) {
-            const errorMessage: string =
-                username.length <= 0 ? ErrorMessages.NO_USERNAME : ErrorMessages.NO_SEASON_SELECTED;
-
-            setFormError({
-                error: true,
-                message: errorMessage,
-            });
+        if (formError(username, selectedSeasonsQueryString)) {
+            setErrorMessage('Form error. Please enter a username and select at least one season.');
             return;
         }
+
         dispatch(updateUserName(username));
         dispatch(updateQueryRequestString(selectedSeasonsQueryString));
         navigate('/game');
     };
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        if (formError.message === ErrorMessages.INVALID_USERNAME && !filter.isProfane(e.target.value)) {
-            setFormError({
-                error: false,
-                message: ErrorMessages.NO_ERROR,
-            });
-        } else if (filter.isProfane(e.target.value)) {
-            setFormError({
-                error: true,
-                message: ErrorMessages.INVALID_USERNAME,
-            });
-        } else {
-            setUsername(e.target.value);
-        }
+        setUsername(e.target.value);
     };
 
     return (
         <section className={styles.formContainer}>
             {seasonData ? (
-                <>
-                    <SeasonSelectionForm />
-                    <form className={styles.seasonsForms} onSubmit={handleSubmit}>
-                        {seasonData.map(i => (
-                            <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
-                        ))}
-                        <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' />
-                        <button type='submit'>Play!</button>
-                        {formError.error ? <ErrorModal message={formError.message} /> : null}
-                    </form>
-                </>
+                <form className={styles.seasonsForms} onSubmit={handleSubmit}>
+                    <p>{errorMessage}</p>
+                    {seasonData.map(i => (
+                        <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
+                    ))}
+                    <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' />
+                    <button type='submit'>Play!</button>
+                </form>
             ) : (
                 <Loader />
             )}

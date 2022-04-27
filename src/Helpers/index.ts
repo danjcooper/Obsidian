@@ -113,4 +113,8 @@ const getRandomSpecialEvent = (eventData: effectData[]): specialEvent => {
     };
 };
 
-export { generateSeasonsString, generateRoundData, getRandomSpecialEvent, addSpecialEvent, streakMilestone };
+const formError = (username: string, selectedSeasons: string): boolean => {
+    return username.length === 0 || selectedSeasons.length === 0 ? true : false;
+};
+
+export { generateSeasonsString, generateRoundData, getRandomSpecialEvent, addSpecialEvent, streakMilestone, formError };
