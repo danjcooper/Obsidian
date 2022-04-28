@@ -85,7 +85,13 @@ const GameSettings = () => {
                     {seasonData.map(i => (
                         <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
                     ))}
-                    <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' value={username} />
+                    <input
+                        className={styles.usernameInput}
+                        onChange={handleUsernameChange}
+                        type='text'
+                        placeholder='USERNAME'
+                        value={username}
+                    />
                     <button type='submit'>Play!</button>
                 </form>
             ) : (

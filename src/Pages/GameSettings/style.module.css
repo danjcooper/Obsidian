@@ -25,6 +25,11 @@
 
     outline: none;
 }
+
+.usernameInput:focus {
+    outline: none;
+}
+
 .formContainer {
     height: 100%;
     display: flex;
