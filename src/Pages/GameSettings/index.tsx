@@ -66,7 +66,15 @@ const GameSettings = () => {
     };
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setUsername(e.target.value);
+        const maxUsernameLength = 15;
+
+        if (e.target.value.length > maxUsernameLength) {
+            setErrorMessage(`Username cannot be longer than ${maxUsernameLength} characters`);
+            return;
+        } else {
+            setErrorMessage(null);
+            setUsername(e.target.value);
+        }
     };
 
     return (
@@ -77,7 +85,7 @@ const GameSettings = () => {
                     {seasonData.map(i => (
                         <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
                     ))}
-                    <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' />
+                    <input onChange={handleUsernameChange} type='text' placeholder='USERNAME' value={username} />
                     <button type='submit'>Play!</button>
                 </form>
             ) : (
