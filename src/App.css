@@ -45,4 +45,7 @@ main section {
     .App {
         min-height: -webkit-fill-available;
     }
+    .page {
+        width: 100vw;
+    }
 }

@@ -18,7 +18,7 @@ const Homepage = () => {
                 </header>
 
                 <section className={styles.gameIntro}>
-                    <h2>Konbanwa!</h2>
+                    <h2 className={styles.subHeading}>Konbanwa!</h2>
                     <p>こんにちは</p>
                     <h3>Welcome to terrace house stats.</h3>
                     <h3>A game to test your Terrace House knowledge.</h3>
