@@ -1,0 +1,32 @@
+[
+    {
+        "category": "what",
+        "title": "This is title",
+        "text": "This is the body. why wopuld this happen? heh ekhnsf kjnskjs skjse",
+        "hidden": false
+    },
+    {
+        "category": "how",
+        "title": "How did you get the data for the game?",
+        "text": "Most of the data about ages, and number of episodes is from wikipedia. The number of dates is from re-watching. Instagram followers was collected manually and is correct as of april 2022. Terrace House Social was an invaluable resource to find everyone.",
+        "hidden": false
+    },
+    {
+        "category": "what",
+        "title": "This shouldn't render",
+        "text": "This is the body. why wopuld this happen? heh ekhnsf kjnskjs skjse",
+        "hidden": true
+    },
+    {
+        "category": "what",
+        "title": "What tech is used for the app?",
+        "text": "The front end is written in react with typescript. The backend uses NodeJs, Express and Postgres",
+        "hidden": false
+    },
+    {
+        "category": "where",
+        "title": "Where can I add an issue I found in the game??",
+        "text": "Send us an email, or raise an issue in the github repo",
+        "hidden": false
+    }
+]

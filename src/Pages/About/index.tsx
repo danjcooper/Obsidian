@@ -1,4 +1,5 @@
 import React from 'react';
+import questions from './questionData.json';
 
 const About = () => {
     return (
@@ -27,7 +28,7 @@ const About = () => {
                 </p>
             </article>
 
-            <h2>How.</h2>
+            <h2>Where.</h2>
             <article>
                 <h3>How did you collect the data for the game?</h3>
                 <p>
