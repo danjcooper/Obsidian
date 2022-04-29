@@ -68,3 +68,14 @@ export interface leaderboard {
     username: string;
     score: number;
 }
+
+export interface qAndAArticle {
+    title: string;
+    text: string;
+    hidden: boolean;
+}
+
+export interface qAndAData {
+    categoryName: string;
+    questions: qAndAArticle[];
+}
