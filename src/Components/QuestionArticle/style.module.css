@@ -1,0 +1,12 @@
+.categoryTitle,
+.categoryText {
+    padding: 0 15px;
+}
+
+.categoryTitle {
+    text-align: left;
+}
+
+.categoryText {
+    text-align: left;
+}

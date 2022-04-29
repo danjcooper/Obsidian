@@ -12,3 +12,5 @@ export { default as LeaderBoard } from './LeaderBoard';
 export { default as LeaderboardItem } from './LeaderboardItem';
 export { default as Modal } from './Modal';
 export { default as Incident } from './Incident';
+export { default as QuestionCategory } from './QuestionCategory';
+export { default as QuestionArticle } from './QuestionArticle';
