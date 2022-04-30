@@ -1,0 +1,11 @@
+.nav {
+    background-color: pink;
+
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.nav * {
+    flex-grow: 1;
+    margin: 10px 0;
+}
