@@ -1,3 +1,7 @@
 .categoryHeader {
     padding: 0 15px;
+    text-decoration: underline 2px solid #64c368;
+}
+.categoryContainer {
+    flex-grow: unset;
 }

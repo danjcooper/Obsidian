@@ -5,8 +5,12 @@
 
 .categoryTitle {
     text-align: left;
+    font-weight: 600;
+
+    margin-bottom: 5px;
 }
 
 .categoryText {
     text-align: left;
+    margin: 0;
 }

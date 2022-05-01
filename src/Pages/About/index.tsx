@@ -1,21 +1,21 @@
 import React from 'react';
-import questions from './questionData.json';
-import { QuestionCategory } from '../../Components';
-
+import { Faq } from '../../Components';
 import styles from './style.module.css';
 
 const About = () => {
     // TODO - Update questions to visible in JSON.
     return (
         <>
-            <nav className={styles.nav}>
-                {questions.map(category => (
-                    <a href='#'>{category.categoryName}</a>
-                ))}
-            </nav>
-            {questions.map((item, i) => (
-                <QuestionCategory key={i} categoryData={item} />
-            ))}
+            <p>
+                Here are few useful links and special thanks.
+                <br />
+                <ul>
+                    <li>The Repo.</li>
+                    <li>The Api I build with all the terrace house data..</li>
+                    <li>Contact details.</li>
+                </ul>
+            </p>
+            <Faq />
         </>
     );
 };
