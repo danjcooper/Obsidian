@@ -16,3 +16,18 @@
 .inactive {
     display: none;
 }
+
+.closeModalButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: none;
+
+    font-size: 40px;
+
+    background: rgb(173, 173, 173);
+}

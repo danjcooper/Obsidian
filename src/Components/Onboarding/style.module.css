@@ -1,0 +1,12 @@
+.onboardingInfo {
+    background-color: white;
+    color: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+.onboardingInfo img,
+.onboardingInfo button {
+    display: block;
+    margin: auto;
+}
