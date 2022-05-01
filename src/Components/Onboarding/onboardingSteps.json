@@ -1,0 +1,22 @@
+[
+    {
+        "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/1.png",
+        "altText": "This is the steps alt text",
+        "description": "Select the seasons you want to play with and enter the name you'd like to use on the leaderboard."
+    },
+    {
+        "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/2.png",
+        "altText": "This is the steps alt text",
+        "description": "You will then be given a question and two housemates to pick from."
+    },
+    {
+        "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/3.png",
+        "altText": "This is the steps alt text",
+        "description": "Once you have the question and both of the housemates the timer will start to countdown. The faster you answer the question, the more points you'll score. If you don't answer before the time runs out you will lose a life."
+    },
+    {
+        "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/4.png",
+        "altText": "This is the steps alt text",
+        "description": "See your result and move on to the next round!"
+    }
+]

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Modal } from '../../Components';
+import { Modal, Onboarding } from '../../Components';
 import styles from './style.module.css';
 
 const Homepage = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
+
+    const closeModal = (): void => {
+        setShowModal(false);
+    };
 
     return (
         <div className='page'>
@@ -35,12 +39,13 @@ const Homepage = () => {
 
                 <p onClick={() => setShowModal(true)}>How to play.</p>
 
-                <Modal show={showModal} close={() => {}}>
-                    // TODO - This will use an onboarding flow to show the user how to play the game.
-                    <h1>This will show the onboarding flow</h1>
-                    <button type='button' onClick={() => setShowModal(false)}>
-                        Close
-                    </button>
+                <Modal
+                    show={showModal}
+                    close={() => {
+                        setShowModal(false);
+                    }}
+                >
+                    <Onboarding />
                 </Modal>
             </div>
         </div>

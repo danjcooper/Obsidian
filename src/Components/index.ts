@@ -16,3 +16,4 @@ export { default as QuestionCategory } from './QuestionCategory';
 export { default as QuestionArticle } from './QuestionArticle';
 export { default as FaqNav } from './FaqNav';
 export { default as Faq } from './Faq';
+export { default as Onboarding } from './Onboarding';

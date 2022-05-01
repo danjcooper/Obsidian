@@ -5,7 +5,10 @@ import { props } from './interfaces';
 const Modal = ({ show, close, children }: props) => {
     return show ? (
         <div>
-            <div className={styles.active}>{children}</div>
+            <div className={styles.active}>
+                {children}
+                <button onClick={close}>Close</button>
+            </div>
         </div>
     ) : null;
 };
