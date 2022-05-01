@@ -7,7 +7,9 @@ const Modal = ({ show, close, children }: props) => {
         <div>
             <div className={styles.active}>
                 {children}
-                <button onClick={close}>Close</button>
+                <button className={styles.closeModalButton} onClick={close}>
+                    X
+                </button>
             </div>
         </div>
     ) : null;
