@@ -20,14 +20,14 @@ const Onboarding = () => {
                 disabled={currentIndex === 0}
                 onClick={decrementIndex}
             >
-                back
+                ᐊ
             </button>
             <button
                 className={`${styles.forward} ${styles.navButton}`}
                 disabled={currentIndex == onboardingSteps.length - 1}
                 onClick={incrementIndex}
             >
-                forward
+                ᐅ
             </button>
 
             <p>{onboardingSteps[currentIndex].description}</p>
