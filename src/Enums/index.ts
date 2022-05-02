@@ -32,9 +32,9 @@ enum GameStates {
 
 enum GameQuestions {
     MORE_DATES = 'Who went on the more dates?',
-    MORE_TIME_IN_HOUSE = 'Who lived in the house for longer?',
+    MORE_TIME_IN_HOUSE = 'Who lived in the house longer?',
     MORE_HOUSEMATES = 'Who lived with more people?',
-    MORE_INSTAGRAM_FOLLOWERS = 'Who has more followers on Instagram?',
+    MORE_INSTAGRAM_FOLLOWERS = 'Who has more Instagram followers?',
     OLDER_NOW = 'Who is older now?',
     OLDER_WHEN_ENTERED = 'Who was older when they entered the house?',
 }
