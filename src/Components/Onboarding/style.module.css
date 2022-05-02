@@ -11,6 +11,11 @@
     margin: auto;
 }
 
+.onboardingInfo img {
+    height: 60vh;
+    margin: 10px auto;
+}
+
 .navButton {
     position: absolute;
 
