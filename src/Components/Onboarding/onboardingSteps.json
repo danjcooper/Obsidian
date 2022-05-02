@@ -1,22 +1,22 @@
 [
     {
         "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/1.png",
-        "altText": "This is the steps alt text",
+        "altText": "Season selection screen is shown and the user is shown clicking the season titles and entering their username.",
         "description": "Select the seasons you want to play with and enter the name you'd like to use on the leaderboard."
     },
     {
         "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/2.png",
-        "altText": "This is the steps alt text",
+        "altText": "The screen shows the question and two possible housemates.",
         "description": "You will then be given a question and two housemates to pick from."
     },
     {
         "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/3.png",
-        "altText": "This is the steps alt text",
-        "description": "Once you have the question and both of the housemates the timer will start to countdown. The faster you answer the question, the more points you'll score. If you don't answer before the time runs out you will lose a life."
+        "altText": "The user clicks the correct answer and is shown a result screen containing the answer and the number of points they scored.",
+        "description": "Click the housemate you think is the right answer and see if you're correct. The quicker you answer the more points you'll score. If you're really lucky, maybe you'll see something special..."
     },
     {
         "imageUrl": "https://raw.githubusercontent.com/iamdanielcooper/Obsidian/main/images/onboarding/4.png",
-        "altText": "This is the steps alt text",
-        "description": "See your result and move on to the next round!"
+        "altText": "The user is shown letting the time running out and shown the results screen where they have scored zero points.",
+        "description": "Watch out for the timer, if you don't answer before the timer runs out, you'll get no points and you'll lose a life."
     }
 ]
