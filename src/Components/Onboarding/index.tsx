@@ -15,12 +15,21 @@ const Onboarding = () => {
     return (
         <section className={styles.onboardingInfo}>
             <img src={onboardingSteps[currentIndex].imageUrl} alt={onboardingSteps[currentIndex].altText} />
-            <button disabled={currentIndex == onboardingSteps.length - 1} onClick={incrementIndex}>
-                Next
+            <button
+                className={`${styles.back} ${styles.navButton}`}
+                disabled={currentIndex === 0}
+                onClick={decrementIndex}
+            >
+                ᐊ
             </button>
-            <button disabled={currentIndex === 0} onClick={decrementIndex}>
-                Previous
+            <button
+                className={`${styles.forward} ${styles.navButton}`}
+                disabled={currentIndex == onboardingSteps.length - 1}
+                onClick={incrementIndex}
+            >
+                ᐅ
             </button>
+
             <p>{onboardingSteps[currentIndex].description}</p>
         </section>
     );
