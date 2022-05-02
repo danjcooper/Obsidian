@@ -10,3 +10,24 @@
     display: block;
     margin: auto;
 }
+
+.navButton {
+    position: absolute;
+
+    background-color: pink;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    border-radius: 100%;
+
+    width: 70px;
+    height: 70px;
+}
+
+button.forward {
+    right: 10px;
+}
+button.back {
+    left: 10px;
+}
