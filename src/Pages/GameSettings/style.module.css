@@ -38,6 +38,11 @@
     justify-content: flex-end;
 }
 
+.description {
+    text-align: center;
+    width: 100%;
+}
+
 @media only screen and (max-width: 768px) {
     .seasonsForms {
         width: 100%;

@@ -80,20 +80,23 @@ const GameSettings = () => {
     return (
         <section className={styles.formContainer}>
             {seasonData ? (
-                <form className={styles.seasonsForms} onSubmit={handleSubmit}>
-                    <p>{errorMessage}</p>
-                    {seasonData.map(i => (
-                        <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
-                    ))}
-                    <input
-                        className={styles.usernameInput}
-                        onChange={handleUsernameChange}
-                        type='text'
-                        placeholder='USERNAME'
-                        value={username}
-                    />
-                    <button type='submit'>Play!</button>
-                </form>
+                <>
+                    <h1 className={styles.description}>SELECT SEASONS</h1>
+                    <form className={styles.seasonsForms} onSubmit={handleSubmit}>
+                        <p>{errorMessage}</p>
+                        {seasonData.map(i => (
+                            <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
+                        ))}
+                        <input
+                            className={styles.usernameInput}
+                            onChange={handleUsernameChange}
+                            type='text'
+                            placeholder='USERNAME'
+                            value={username}
+                        />
+                        <button type='submit'>Play!</button>
+                    </form>
+                </>
             ) : (
                 <Loader />
             )}
