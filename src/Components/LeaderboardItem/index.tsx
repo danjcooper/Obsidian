@@ -4,10 +4,11 @@ import styles from './style.module.css';
 
 const LeaderboardItem = ({ data, isUsersScore }: props) => {
     return (
-        <p className={isUsersScore ? styles.active : ''}>
-            #{data.position}
-            {data.username} : {data.score}
-        </p>
+        <tr className={isUsersScore ? styles.active : ''}>
+            <td className={styles.left}>{data.position}</td>
+            <td className={styles.left}>{data.username}</td>
+            <td className={styles.right}>{data.score}</td>
+        </tr>
     );
 };
 

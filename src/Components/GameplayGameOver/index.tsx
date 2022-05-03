@@ -7,6 +7,7 @@ import Loader from '../Loader';
 import { props } from './interfaces';
 import { leaderboard } from '../../Interfaces';
 import LeaderboardItem from '../LeaderboardItem';
+import styles from './styles.module.css';
 
 const GameplayGameOver = ({ username, score }: props) => {
     // const [scoreAddedToLeaderboard, setScoreAddedToLeaderboard] = useState<boolean>(false);
@@ -35,9 +36,19 @@ const GameplayGameOver = ({ username, score }: props) => {
             </section>
             <section>
                 {leaderboardData ? (
-                    leaderboardData.map((item, i) => (
-                        <LeaderboardItem data={item} isUsersScore={item.isCurrentScore ? item.isCurrentScore : false} />
-                    ))
+                    <table className={styles.leaderboardTable}>
+                        <tr>
+                            <th>Position</th>
+                            <th>Username</th>
+                            <th>Score</th>
+                        </tr>
+                        {leaderboardData.map((item, i) => (
+                            <LeaderboardItem
+                                data={item}
+                                isUsersScore={item.isCurrentScore ? item.isCurrentScore : false}
+                            />
+                        ))}
+                    </table>
                 ) : (
                     <Loader />
                 )}
