@@ -67,6 +67,7 @@ export interface leaderboard {
     id: number;
     username: string;
     score: number;
+    isCurrentScore?: boolean;
 }
 
 export interface qAndAArticle {

@@ -36,7 +36,7 @@ const GameplayGameOver = ({ username, score }: props) => {
             <section>
                 {leaderboardData ? (
                     leaderboardData.map((item, i) => (
-                        <LeaderboardItem data={item} isUsersScore={item.username === username} />
+                        <LeaderboardItem data={item} isUsersScore={item.isCurrentScore ? item.isCurrentScore : false} />
                     ))
                 ) : (
                     <Loader />
