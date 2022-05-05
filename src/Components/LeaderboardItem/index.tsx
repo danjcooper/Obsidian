@@ -4,7 +4,9 @@ import styles from './style.module.css';
 
 const LeaderboardItem = ({ data, isUsersScore }: props) => {
     return (
-        <article>
+        <article
+            className={isUsersScore ? `${styles.leaderboardItem} ${styles.usersScore}` : `${styles.leaderboardItem}`}
+        >
             <p>{data.position}</p>
             <p>{data.username}</p>
             <p>{data.score}</p>
