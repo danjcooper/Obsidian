@@ -8,6 +8,10 @@
     background-color: aqua;
     height: 40px;
 }
-.active {
-    background-color: pink;
+.leaderboardItem * {
+    display: inline-block;
+}
+
+.usersScore {
+    background-color: yellow;
 }
