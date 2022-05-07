@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 import LeaderBoard from '../LeaderBoard';
 import {} from '../../Helpers';
 import Loader from '../Loader';
-import { props } from './interfaces';
+import { props, usersScoreInfo } from './interfaces';
 import { leaderboard } from '../../Interfaces';
 import LeaderboardItem from '../LeaderboardItem';
 import styles from './styles.module.css';
 
 const GameplayGameOver = ({ username, score }: props) => {
-    // const [scoreAddedToLeaderboard, setScoreAddedToLeaderboard] = useState<boolean>(false);
     const [leaderboardData, setLeaderboardData] = useState<leaderboard[] | null>(null);
+    const [usersScoreData, setUsersScoreData] = useState<usersScoreInfo | null>(null);
 
     useEffect(() => {
         const updateLeaderboard = async () => {
@@ -23,15 +23,22 @@ const GameplayGameOver = ({ username, score }: props) => {
             console.log(response.data);
 
             setLeaderboardData(response.data);
-            // setScoreAddedToLeaderboard(response.status === 200 ? true : false);
         };
         updateLeaderboard();
     }, []);
+
+    useEffect(() => {
+        if (leaderboardData) {
+            const usersScore = leaderboardData.filter(a => a.isCurrentScore);
+            setUsersScoreData(usersScore[0]);
+        }
+    }, [leaderboardData]);
 
     return (
         <div>
             <section>
                 <h2>Game Over</h2>
+
                 <h2>You scored: {score}</h2>
             </section>
             <section>
