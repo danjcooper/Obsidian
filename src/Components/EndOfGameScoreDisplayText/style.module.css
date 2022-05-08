@@ -1,0 +1,22 @@
+.gameOverText {
+    text-align: center;
+}
+.gameOverText button {
+    background-color: #64c368;
+    color: white;
+
+    border: 0;
+    outline: none;
+
+    padding: 10px 30px;
+    margin: 30px;
+
+    font-size: 18px;
+
+    border-radius: 20px;
+}
+
+.headline {
+    font-weight: 300;
+    font-size: 45px;
+}

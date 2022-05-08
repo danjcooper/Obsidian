@@ -4,10 +4,13 @@ import styles from './style.module.css';
 
 const LeaderboardItem = ({ data, isUsersScore }: props) => {
     return (
-        <p className={isUsersScore ? styles.active : ''}>
-            #{data.position}
-            {data.username} : {data.score}
-        </p>
+        <article
+            className={isUsersScore ? `${styles.leaderboardItem} ${styles.usersScore}` : `${styles.leaderboardItem}`}
+        >
+            <p>{data.position}</p>
+            <p>{data.username}</p>
+            <p>{data.score}</p>
+        </article>
     );
 };
 

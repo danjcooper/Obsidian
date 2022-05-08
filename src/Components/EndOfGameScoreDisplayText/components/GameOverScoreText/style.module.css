@@ -1,0 +1,15 @@
+.gameOverText {
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    word-spacing: 3px;
+}
+
+.bolder {
+    font-weight: 600;
+}
+.textContainer {
+    background-color: #64c368;
+    padding: 10px 5px;
+}
