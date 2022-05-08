@@ -7,7 +7,7 @@ const GameOverScoreText = ({ usersScoreData }: props) => {
         <section className={styles.textContainer}>
             <h2 className={styles.gameOverText}>
                 Nice! You scored <span className={styles.bolder}>{usersScoreData.score} points</span> that puts you at
-                <span className={styles.bolder}>#{usersScoreData.position}</span> on the laderboard. Great work.
+                <span className={styles.bolder}> #{usersScoreData.position}</span> on the laderboard. Great work.
             </h2>
         </section>
     );
