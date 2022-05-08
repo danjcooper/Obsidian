@@ -119,7 +119,7 @@ const Game = () => {
 
     return (
         <>
-            <ScoreBoard score={score} lives={lives} streak={streak} />
+            {gameState !== GameStates.GAME_OVER && <ScoreBoard score={score} lives={lives} streak={streak} />}
             <>{housemateData ? renderGameplayComponent() : <Loader />}</>
         </>
     );
