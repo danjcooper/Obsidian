@@ -1,6 +1,6 @@
 import axios, { Axios, AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import LeaderBoard from '../LeaderBoard';
 import {} from '../../Helpers';
 import Loader from '../Loader';
@@ -8,6 +8,7 @@ import { props, usersScoreInfo } from './interfaces';
 import { leaderboard } from '../../Interfaces';
 import LeaderboardItem from '../LeaderboardItem';
 import styles from './styles.module.css';
+import EndOfGameScoreDisplayText from '../EndOfGameScoreDisplayText';
 
 const GameplayGameOver = ({ username, score }: props) => {
     const [leaderboardData, setLeaderboardData] = useState<leaderboard[] | null>(null);
@@ -36,23 +37,16 @@ const GameplayGameOver = ({ username, score }: props) => {
 
     return (
         <div>
-            <section>
-                <h2>Game Over</h2>
-
-                <h2>You scored: {score}</h2>
-            </section>
+            {usersScoreData && <EndOfGameScoreDisplayText usersScoreData={usersScoreData} />}
             <section>
                 {leaderboardData ? (
                     leaderboardData.map((item, i) => (
-                        <LeaderboardItem data={item} isUsersScore={item.isCurrentScore ? item.isCurrentScore : false} />
+                        <LeaderboardItem data={item} isUsersScore={!!item.isCurrentScore} />
                     ))
                 ) : (
                     <Loader />
                 )}
             </section>
-            <Link to='/settings'>
-                <button type='button'>PLAY AGAIN</button>
-            </Link>
         </div>
     );
 };
