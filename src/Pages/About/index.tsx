@@ -1,11 +1,12 @@
 import React from 'react';
-import { Faq } from '../../Components';
+import { Faq, NavigationHeader } from '../../Components';
 import styles from './style.module.css';
 
 const About = () => {
     // TODO - Update questions to visible in JSON.
     return (
         <>
+            <NavigationHeader />
             <p>
                 Here are few useful links and special thanks.
                 <br />
