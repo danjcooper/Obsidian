@@ -18,3 +18,4 @@ export { default as FaqNav } from './FaqNav';
 export { default as Faq } from './Faq';
 export { default as Onboarding } from './Onboarding';
 export { default as EndOfGameScoreDisplayText } from './EndOfGameScoreDisplayText';
+export { default as MainLeaderBoard } from './MainLeaderBoard';

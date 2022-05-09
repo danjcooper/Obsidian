@@ -1,4 +1,5 @@
+import { leaderboard } from '../../../Interfaces';
+
 export interface props {
-    score?: number;
-    username?: string;
+    data: leaderboard[];
 }
