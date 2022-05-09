@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Modal, Onboarding } from '../../Components';
+import { Modal, Onboarding, NavigationHeader } from '../../Components';
 import styles from './style.module.css';
 
 const Homepage = () => {
@@ -13,13 +13,7 @@ const Homepage = () => {
     return (
         <div className='page'>
             <div className={styles.homepageContainer}>
-                <header>
-                    <h1 className={styles.logo}>
-                        TERRACE
-                        <br />
-                        STATS
-                    </h1>
-                </header>
+                <NavigationHeader />
 
                 <section className={styles.gameIntro}>
                     <h2 className={styles.subHeading}>Konbanwa!</h2>

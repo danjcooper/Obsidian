@@ -1,0 +1,15 @@
+.logo {
+    font-weight: 300;
+    text-align: center;
+
+    display: block;
+
+    text-decoration: none;
+    font-size: 30px;
+
+    color: black;
+    margin: 15px auto;
+}
+header {
+    flex-grow: 0;
+}

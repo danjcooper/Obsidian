@@ -1,9 +1,10 @@
 import React from 'react';
-import { MainLeaderBoard } from '../../Components';
+import { MainLeaderBoard, NavigationHeader } from '../../Components';
 
 const Leaderboard = () => {
     return (
         <>
+            <NavigationHeader />
             <MainLeaderBoard />
         </>
     );
