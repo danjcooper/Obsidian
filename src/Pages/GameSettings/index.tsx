@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SeasonCheckbox, Loader } from '../../Components';
-import { seasonData } from '../../Interfaces';
+import { seasonData, gameInfo } from '../../Interfaces';
 import { formError, generateSeasonsString } from '../../Helpers';
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
 import { Dispatch } from 'redux';
 import styles from './style.module.css';
-const Filter = require('bad-words');
 
 const GameSettings = () => {
     const [seasonData, setSeasonData] = useState<seasonData[] | null>(null);
@@ -16,10 +15,18 @@ const GameSettings = () => {
     const [selectedSeasons, setSelectedSeasons] = useState<string[]>([]);
     const [selectedSeasonsQueryString, setSelectedSeasonsQueryString] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [isRePlay, setIsRePlay] = useState<boolean>(false);
 
     const dispatch: Dispatch = useDispatch();
     const navigate = useNavigate();
-    const filter = new Filter();
+
+    const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
+
+    useEffect(() => {
+        if (gameInfo) {
+            setUsername(gameInfo.userName);
+        }
+    }, [gameInfo]);
 
     useEffect(() => {
         const getData = async () => {
