@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { GameplayAnsweing, GameplayResult, ScoreBoard } from './Components';
-import { Homepage, GameSettings, Game, About } from './Pages';
+import { Homepage, GameSettings, Game, About, Leaderboard } from './Pages';
 
 function App() {
     return (
@@ -13,6 +13,7 @@ function App() {
                     <Route path='/settings' element={<GameSettings />} />
                     <Route path='/game' element={<Game />} />
                     <Route path='/about' element={<About />} />
+                    <Route path='/leaderboard' element={<Leaderboard />} />
                     <Route path='/test' element={<></>} />
                 </Routes>
             </main>

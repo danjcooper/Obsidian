@@ -6,7 +6,6 @@ import {} from '../../Helpers';
 import Loader from '../Loader';
 import { props, usersScoreInfo } from './interfaces';
 import { leaderboard } from '../../Interfaces';
-import LeaderboardItem from '../LeaderboardItem';
 import styles from './styles.module.css';
 import EndOfGameScoreDisplayText from '../EndOfGameScoreDisplayText';
 
@@ -38,15 +37,7 @@ const GameplayGameOver = ({ username, score }: props) => {
     return (
         <div>
             {usersScoreData && <EndOfGameScoreDisplayText usersScoreData={usersScoreData} />}
-            <section>
-                {leaderboardData ? (
-                    leaderboardData.map((item, i) => (
-                        <LeaderboardItem key={i} data={item} isUsersScore={!!item.isCurrentScore} />
-                    ))
-                ) : (
-                    <Loader />
-                )}
-            </section>
+            <section>{leaderboardData ? <LeaderBoard data={leaderboardData} /> : <Loader />}</section>
         </div>
     );
 };
