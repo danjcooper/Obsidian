@@ -15,13 +15,13 @@ const GameSettings = () => {
     const [selectedSeasons, setSelectedSeasons] = useState<string[]>([]);
     const [selectedSeasonsQueryString, setSelectedSeasonsQueryString] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const [isRePlay, setIsRePlay] = useState<boolean>(false);
 
     const dispatch: Dispatch = useDispatch();
     const navigate = useNavigate();
 
     const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
 
+    // If the user is replaying, add their username automatically.
     useEffect(() => {
         if (gameInfo) {
             setUsername(gameInfo.userName);
