@@ -7,13 +7,30 @@ const About = () => {
     return (
         <>
             <NavigationHeader />
+            <section>
+                <h2>Special Thanks to</h2>
+                <p>Terrace house socials. For making it so easy to get instagram data.</p>
+                <p>TerraceMouse & Goob for translating and subtitling the original (and best) season.</p>
+            </section>
             <p>
-                Here are few useful links and special thanks.
+                Here are few useful links.
                 <br />
-                <ul>
-                    <li>The Repo.</li>
-                    <li>The Api I build with all the terrace house data..</li>
-                    <li>Contact details.</li>
+                <ul className={styles.linkList}>
+                    <li>
+                        <a href='https://github.com/iamdanielcooper/Obsidian/' target='_blank'>
+                            Front End Repo
+                        </a>
+                    </li>
+                    <li>
+                        <a href='https://github.com/iamdanielcooper/terrace-house-game-server/' target='_blank'>
+                            Back End Repo
+                        </a>
+                    </li>
+                    <li>
+                        <a href='http://www.iamdanielcooper.com/' target='_blank'>
+                            My Website
+                        </a>
+                    </li>
                 </ul>
             </p>
             <Faq />
