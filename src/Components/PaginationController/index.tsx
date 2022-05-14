@@ -1,16 +1,25 @@
 import React from 'react';
 import { props } from './interfaces';
+import styles from './style.module.css';
 
 const PaginationController = ({ offset, setOffset, isEndOfResults }: props) => {
     return (
-        <>
-            <button disabled={offset <= 0 ? true : false} onClick={() => setOffset(offset - 10)}>
-                -
+        <section className={styles.paginationNavContainer}>
+            <button
+                className={styles.paginationNavButton}
+                disabled={offset <= 0 ? true : false}
+                onClick={() => setOffset(offset - 10)}
+            >
+                Previous
             </button>
-            <button disabled={isEndOfResults} onClick={() => setOffset(offset + 10)}>
-                +
+            <button
+                className={styles.paginationNavButton}
+                disabled={isEndOfResults}
+                onClick={() => setOffset(offset + 10)}
+            >
+                Next
             </button>
-        </>
+        </section>
     );
 };
 

@@ -1,0 +1,22 @@
+.paginationNavContainer {
+    display: flex;
+    justify-content: space-between;
+
+    flex-grow: 0;
+    margin: 10px;
+}
+.paginationNavButton {
+    width: 80px;
+    height: 40px;
+
+    color: white;
+    background-color: #64c368;
+
+    outline: none;
+    border: none;
+}
+
+.paginationNavButton:disabled {
+    color: rgb(129, 129, 129);
+    background-color: rgb(233, 233, 233);
+}

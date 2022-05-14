@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { leaderboard } from '../../Interfaces';
 import LeaderBoard from '../LeaderBoard';
-import { LeaderboardItem, PaginationController } from '..';
+import { PaginationController } from '..';
 import Loader from '../Loader';
 
 const MainLeaderBoard = () => {
@@ -16,11 +16,8 @@ const MainLeaderBoard = () => {
             const data = await (
                 await axios.get(`https://terrace-house-server.herokuapp.com/leaderboard/all/${resultLimit}/${offset}`)
             ).data;
-            if (data.length < resultLimit) {
-                setIsEndOfResults(true);
-            } else if (data.length === resultLimit) {
-                setIsEndOfResults(false);
-            }
+
+            setIsEndOfResults(data.length < resultLimit ? true : false);
             setLeaderboardData(data);
         };
         getData();
@@ -34,8 +31,8 @@ const MainLeaderBoard = () => {
         <>
             {leaderboardData ? (
                 <>
-                    <PaginationController offset={offset} setOffset={updateOffset} isEndOfResults={isEndOfResults} />
                     <LeaderBoard data={leaderboardData} />
+                    <PaginationController offset={offset} setOffset={updateOffset} isEndOfResults={isEndOfResults} />
                 </>
             ) : (
                 <Loader />
