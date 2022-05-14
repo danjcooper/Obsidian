@@ -3,38 +3,53 @@
         "categoryName": "What",
         "questions": [
             {
-                "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                "text": "TLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a elit eget ligula posuere iaculis ac fermentum lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce et urna sed ipsum egestas fermentum sed vel lacus. Phasellus at dolor magna. Nullam in tellus sed mi lobortis egestas. Praesent a nisl sollicitudin, rutrum purus id, rhoncus tellus. Donec at neque pretium, lacinia ligula sed, commodo velit. Suspendisse eleifend cursus risus non interdum. Nunc rhoncus ex lorem, sed ultricies tortor semper non. Nulla ullamcorper magna ac feugiat pharetra. Sed condimentum, neque id semper pellentesque, velit ante tempor leo, nec imperdiet dolor tortor eget erat. Quisque posuere odio id dolor pellentesque cursus eu at mauris. Fusce ligula odio, consequat sed ex ut, malesuada pharetra ex. Sed dolor dui, eleifend eu enim vitae, pretium placerat nisi. Mauris nec ligula justo.",
+                "title": "Where is the data for the game from?",
+                "text": "I got a lot of the data from Wikipedia, things like the names, ages, time in the house. Then I added the instagram data myself, using the incredibly helpful www.terracehousesocial.com for links to almost everyone's social media pages. For dates I re-watched and updated a spreadsheet as I went. Most of the data should be good but if you do notice something that doesn't seem right please do reach out.",
                 "hidden": false
             },
             {
-                "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                "text": "Vivamus quis neque imperdiet, malesuada quam nec, tincidunt felis. Fusce non auctor ex. Cras nec mi sit amet lectus faucibus egestas. Donec scelerisque sapien ac ipsum pretium pharetra. Pellentesque congue pellentesque vestibulum. Aenean venenatis ante orci, eu lobortis purus efficitur a. Sed tincidunt felis at euismod sodales. Suspendisse luctus volutpat risus non facilisis. Ut non ultrices elit. Phasellus sit amet lectus facilisis, finibus massa quis, ullamcorper nisl. Cras convallis at nunc vel consequat. Vivamus suscipit sodales nibh. Sed pretium tristique lacus ut lobortis.",
+                "title": "Why did you make the game?",
+                "text": "I'm fresh out of a coding bootcamp and I wanted to work on a full stack project, I also wanted to make a project that I could share with a community. This project was mainly an excuse to learn Typescript though.",
                 "hidden": false
             },
             {
-                "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                "text": "Nunc egestas augue id massa tempor placerat. Praesent hendrerit posuere cursus. Pellentesque non ligula vel enim ornare convallis non id orci. Maecenas mattis in nulla a malesuada. Sed pretium mi enim. Quisque facilisis quam eget commodo aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer tincidunt dui porttitor dapibus fringilla. Fusce consectetur, erat non laoreet pretium, nibh lectus pharetra ligula, vitae vulputate metus nisl ac nisl. Aliquam non pretium leo, quis dapibus enim.",
+                "title": "What tech is the site build with?",
+                "text": "The front end is Reach with Typescript. The backend is a Node/express server and a Postgres database.Lots of other bits and libraries, but if you like that kind of thing you can pull down the repo and take a look, links are at the top of the page.",
                 "hidden": false
-            }
-        ]
-    },
-    {
-        "categoryName": "How",
-        "questions": [
+            },
             {
-                "title": "Lorem ipsum dolor",
-                "text": "Aliquam rhoncus massa at enim venenatis accumsan. Fusce vitae erat vitae dolor ornare dignissim at non lorem. Ut laoreet euismod leo faucibus viverra. Sed vitae imperdiet est. Praesent id ullamcorper enim. Fusce risus leo, tempor at augue et, convallis viverra nunc. Sed rutrum tellus in justo rutrum mattis.",
+                "title": "How can I contribute?",
+                "text": "Lots of ways! Ideas, data collection, reporting bugs and issues, fixing bugs and issues 👀. All and any help is greatly appreciated.",
                 "hidden": false
-            }
-        ]
-    },
-    {
-        "categoryName": "Where",
-        "questions": [
+            },
             {
-                "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                "text": "Nunc egestas augue id massa tempor placerat. Praesent hendrerit posuere cursus. Pellentesque non ligula vel enim ornare convallis non id orci. Maecenas mattis in nulla a malesuada. Sed pretium mi enim. Quisque facilisis quam eget commodo aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer tincidunt dui porttitor dapibus fringilla. Fusce consectetur, erat non laoreet pretium, nibh lectus pharetra ligula, vitae vulputate metus nisl ac nisl. Aliquam non pretium leo, quis dapibus enim.",
+                "title": "What is a 'date' in the game sense.",
+                "text": "A date is any premeditated outing based the people involved being interested in each other. So Shion and Tsubasa ice skating is a date. Two housemates going for an impromptu lunch is not a date.",
+                "hidden": false
+            },
+            {
+                "title": "Whats next for the project?",
+                "text": "I'm not sure, fixing any issues anyone finds, updating it when a new season has come out 🙏🏻. I'd love to work on it more though. I have some half baked ideas about incorporating the panel, special guests and classic music tracks as some kind of 'bonus rounds' but if anyone has any ideas please do get in touch.",
+                "hidden": false
+            },
+            {
+                "title": "How much did you want to see it, on a scale of 1 to 10?",
+                "text": "2",
+                "hidden": false
+            },
+            {
+                "title": "How much did you want to go?",
+                "text": "1",
+                "hidden": false
+            },
+            {
+                "title": "Do you practice Santeria?",
+                "text": "No.",
+                "hidden": false
+            },
+            {
+                "title": "What's the best season of Terrace House?",
+                "text": "Easy, Boys & Girls Next Door.",
                 "hidden": false
             }
         ]

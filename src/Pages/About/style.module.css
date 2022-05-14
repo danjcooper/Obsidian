@@ -1,0 +1,13 @@
+.linkList {
+    padding: 0 15px;
+}
+.linkList li {
+    list-style: none;
+
+    text-align: left;
+
+    text-decoration: none;
+}
+.linkList li a {
+    text-decoration: none;
+}
