@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosResponse } from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SeasonCheckbox, Loader } from '../../Components';
-import { seasonData } from '../../Interfaces';
+import { seasonData, gameInfo } from '../../Interfaces';
 import { formError, generateSeasonsString } from '../../Helpers';
 import { updateSeasonData, updateUserName, updateQueryRequestString } from '../../Actions/GameInfo';
 import { Dispatch } from 'redux';
 import styles from './style.module.css';
-const Filter = require('bad-words');
 
 const GameSettings = () => {
     const [seasonData, setSeasonData] = useState<seasonData[] | null>(null);
@@ -19,7 +18,15 @@ const GameSettings = () => {
 
     const dispatch: Dispatch = useDispatch();
     const navigate = useNavigate();
-    const filter = new Filter();
+
+    const gameInfo: gameInfo = useSelector((state: gameInfo) => state);
+
+    // If the user is replaying, add their username automatically.
+    useEffect(() => {
+        if (gameInfo) {
+            setUsername(gameInfo.userName);
+        }
+    }, [gameInfo]);
 
     useEffect(() => {
         const getData = async () => {
