@@ -20,3 +20,4 @@ export { default as Onboarding } from './Onboarding';
 export { default as EndOfGameScoreDisplayText } from './EndOfGameScoreDisplayText';
 export { default as MainLeaderBoard } from './MainLeaderBoard';
 export { default as NavigationHeader } from './NavigationHeader';
+export { default as PaginationController } from './PaginationController';

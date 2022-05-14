@@ -63,7 +63,7 @@ const GameSettings = () => {
         e.preventDefault();
 
         if (formError(username, selectedSeasonsQueryString)) {
-            setErrorMessage('Form error. Please enter a username and select at least one season.');
+            setErrorMessage('Please enter a username and select at least one season.');
             return;
         }
 
