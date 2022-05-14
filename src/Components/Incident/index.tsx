@@ -19,7 +19,6 @@ const Incident = ({ specialEvent, close }: any) => {
             <img src={specialEvent.eventData.imageUrl} alt='image of event depicted' />
             <h2>{specialEvent.eventData.text}</h2>
             <h3>{specialEvent.eventData.positive ? '+' : '-'} 100 bonus points</h3>
-            <button onClick={close}>Close</button>
         </animated.div>
     );
 };
