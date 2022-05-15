@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { GameplayAnsweing, GameplayResult, ScoreBoard, Incident } from './Components';
 import { Homepage, GameSettings, Game, About, Leaderboard } from './Pages';
 
 function App() {
