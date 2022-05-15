@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +15,7 @@ const GameSettings = () => {
     const [selectedSeasons, setSelectedSeasons] = useState<string[]>([]);
     const [selectedSeasonsQueryString, setSelectedSeasonsQueryString] = useState<string>('');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const form = useRef<HTMLFormElement>(null);
 
     const dispatch: Dispatch = useDispatch();
     const navigate = useNavigate();
@@ -25,6 +26,23 @@ const GameSettings = () => {
     useEffect(() => {
         if (gameInfo) {
             setUsername(gameInfo.userName);
+            const selected: string[] = [];
+            const previouslySelectedSeasons: string[] = gameInfo.queryRequestString
+                ? gameInfo.queryRequestString.split('+')
+                : [];
+
+            if (form.current) {
+                const inputs: NodeListOf<HTMLInputElement> = form.current.querySelectorAll('input[type=checkbox]');
+
+                inputs.forEach(input => {
+                    if (previouslySelectedSeasons.indexOf(input.value) !== -1) {
+                        let label: HTMLLabelElement = input.closest('label')!;
+                        label.click();
+                        selected.push(input.value);
+                    }
+                });
+                setSelectedSeasons(selected);
+            }
         }
     }, [gameInfo]);
 
@@ -45,6 +63,9 @@ const GameSettings = () => {
     }, [selectedSeasons]);
 
     const handleClick = (e: React.MouseEvent<HTMLInputElement>): void => {
+        e.preventDefault();
+        console.log('clicked');
+
         const input: string = e.currentTarget.value;
         const updatedState: string[] = [...selectedSeasons];
 
@@ -89,7 +110,7 @@ const GameSettings = () => {
             {seasonData ? (
                 <>
                     <h1 className={styles.description}>SELECT SEASONS</h1>
-                    <form className={styles.seasonsForms} onSubmit={handleSubmit}>
+                    <form ref={form} className={styles.seasonsForms} onSubmit={handleSubmit}>
                         <p>{errorMessage}</p>
                         {seasonData.map(i => (
                             <SeasonCheckbox handleClick={handleClick} key={i.id} data={i} />
